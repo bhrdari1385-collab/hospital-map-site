@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Hospital Map</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; }
+        #map { width: 100%; height: 100%; }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+    // ایجاد نقشه
+    var map = L.map('map', {
+        crs: L.CRS.Simple,
+        minZoom: -5,
+        maxZoom: 5
+    });
+
+    // اندازه تصویر PNG (مخصوص نقشه تو)
+    var w = 19661;
+    var h = 13907;
+
+    // تبدیل مختصات تصویر به مختصات leaflet
+    var southWest = map.unproject([0, h], map.getMaxZoom() - 1);
+    var northEast = map.unproject([w, 0], map.getMaxZoom() - 1);
+    var bounds = new L.LatLngBounds(southWest, northEast);
+
+    // اضافه کردن تصویر نقشه
+    L.imageOverlay('images/hospital-map.png', bounds).addTo(map);
+
+    // فیت کردن نقشه داخل صفحه
+    map.fitBounds(bounds);
+// ---------------- ICON FUNCTION ----------------
+var squareIcon = function(size){
+    return L.divIcon({
+        className: "",
+        html: '<div style="width:'+size+'px;height:'+size+'px;background:#003b7a;border-radius:3px;box-shadow:0 0 4px rgba(0,0,0,.25)"></div>',
+        iconSize: [size, size],
+        iconAnchor: [size/2, size/2]
+    });
+};
+
+// ---------------- LIST OF TAGS ----------------
+var allTags = [];
+   
+
+var tag_guard = L.marker(
+    map.unproject([18400, 1300], map.getMaxZoom() - 1), 
+    { icon: squareIcon(12) } 
+).addTo(map)
+.bindTooltip("نگهبانی", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'>
+<h2 style='margin-top:0;'>نگهبانی</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>تلویزیون</td><td>1</td><td>-</td></tr>
+<tr><td>پنل سقفی</td><td>15</td><td>-</td></tr>
+<tr><td>لامپ</td><td>2</td><td>-</td></tr>
+<tr><td>کولر آبی</td><td>2</td><td>-</td></tr>
+<tr><td>سیستم</td><td>1</td><td>-</td></tr>
+<tr><td>آب سرد کن</td><td>1</td><td>-</td></tr>
+<tr><td>قهوه ساز</td><td>1</td><td>-</td></tr>
+<tr><td>سماور</td><td>1</td><td>-</td></tr>
+<tr><td>یخچال</td><td>1</td><td>-</td></tr>
+<tr><td>پنکه دیواری</td><td>1</td><td>-</td></tr>
+</table>
+<hr style="border:1px dashed #ffffff;margin-top:10px;">
+<p><strong>تعداد پرسنل:</strong> 43</p>
+</div>
+`);
+
+allTags.push({ marker: tag_guard, baseSize: 12 });
+
+
+
+var tag_wasteRoom = L.marker(
+    map.unproject([18400, 1800], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("اتاق موقت زباله", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'>
+<h2 style='margin-top:0;'>اتاق موقت زباله</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>هواکش</td><td>1</td><td>-</td></tr>
+<tr><td>پنل سقفی</td><td>8</td><td>-</td></tr>
+<tr><td>هواساز</td><td>1</td><td>-</td></tr>
+<tr><td>لامپ</td><td>2</td><td>-</td></tr>
+</table>
+</div>
+`);
+
+allTags.push({ marker: tag_wasteRoom, baseSize: 12 });
+
+
+var tag_servicesOffice = L.marker(
+    map.unproject([18400, 2300], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("دفتر خدمات", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'>
+<h2 style='margin-top:0;'>دفتر خدمات</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>فنکوئل</td><td>1</td><td>-</td></tr>
+<tr><td>پنل سقفی</td><td>2</td><td>-</td></tr>
+<tr><td>دریچه هواساز</td><td>1</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>1</td><td>-</td></tr>
+<tr><td>سیستم</td><td>1</td><td>-</td></tr>
+<tr><td>پنکه</td><td>1</td><td>-</td></tr>
+<tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
+<tr><td>یخچال</td><td>1</td><td>-</td></tr>
+<tr><td>مهتابی دوتایی بزرگ</td><td>3</td><td>-</td></tr>
+<tr><td>جارو برقی</td><td>1</td><td>-</td></tr>
+<tr><td>کولر گازی کانکس بحران </td><td>1</td><td>-</td></tr>
+</table>
+</div>
+`);
+
+allTags.push({ marker: tag_servicesOffice, baseSize: 12 });
+
+
+
+var tag_vehicleUnit = L.marker(
+    map.unproject([18400, 2800], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("واحد نقلیه", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:600px;'>
+<h2 style='margin-top:0;'>واحد نقلیه</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>پرینتر</td><td>1</td><td>-</td></tr>
+<tr><td>سیستم</td><td>2</td><td>-</td></tr>
+<tr><td>تلویزیون</td><td>1</td><td>-</td></tr>
+<tr><td>یخچال</td><td>2</td><td>-</td></tr>
+<tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
+<tr><td>لامپ</td><td>8</td><td>-</td></tr>
+<tr><td>کولر آبی</td><td>4</td><td>-</td></tr>
+<tr><td>مهتابی دوتایی بزرگ</td><td>25</td><td>-</td></tr>
+<tr><td>دستگاه واکس</td><td>1</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>3</td><td>-</td></tr>
+<tr><td>رادیاتور</td><td>2</td><td>-</td></tr>
+<tr><td>پنل سقفی</td><td>8</td><td>-</td></tr>
+<tr><td>هواکش</td><td>2</td><td>-</td></tr>
+<tr><td>اتوکلاو</td><td>1</td><td>-</td></tr>
+<tr><td>کمپرسور آب گرم</td><td>1</td><td>-</td></tr>
+<tr><td>آبگرمکن</td><td>1</td><td>-</td></tr>
+<tr><td>دیگ بخار</td><td>1</td><td>-</td></tr>
+<tr><td>بخاری گازی</td><td>1</td><td>-</td></tr>
+<tr><td>لامپ</td><td>3</td><td>-</td></tr>
+<tr><td>کولر گازی</td><td>1</td><td>-</td></tr>
+<tr><td>دستگاه سختگیر</td><td>1</td><td>-</td></tr>
+</table>
+<hr style="border:1px dashed #ffffff;margin-top:10px;">
+<p><strong>تعداد پرسنل:</strong> 5</p>
+</div>
+`);
+
+allTags.push({ marker: tag_vehicleUnit, baseSize: 12 });
+
+
+var tag_greenSpace = L.marker(
+    map.unproject([18400, 3300], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("فضای سبز", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'>
+<h2 style='margin-top:0;'>فضای سبز</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>یخچال</td><td>1</td><td>-</td></tr>
+<tr><td>آبگرم‌کن</td><td>1</td><td>-</td></tr>
+<tr><td>سماور</td><td>1</td><td>-</td></tr>
+<tr><td>مهتابی بزرگ دوتایی</td><td>1</td><td>-</td></tr>
+</table>
+</div>
+`);
+
+allTags.push({ marker: tag_greenSpace, baseSize: 12 });
+
+
+var tag_supplyExpert = L.marker(
+    map.unproject([18400, 3800], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("کارشناس تغذیه", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'>
+<h2 style='margin-top:0;'>کارشناس تغذیه</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>سیستم</td><td>1</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>1</td><td>-</td></tr>
+<tr><td>یخچال</td><td>1</td><td>-</td></tr>
+<tr><td>هواساز</td><td>1</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>1</td><td>-</td></tr>
+</table>
+<hr style="border:1px dashed #ffffff;margin-top:10px;">
+<p><strong>تعداد پرسنل:</strong> 2</p>
+</div>
+`);
+
+allTags.push({ marker: tag_supplyExpert, baseSize: 12 });
+
+
+
+
+var tag_medicalEquip = L.marker(
+    map.unproject([18400, 4300], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("تجهیزات پزشکی", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:600px;'>
+<h2 style='margin-top:0;'>تجهیزات پزشکی</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>پنل سقفی</td><td>21</td><td>-</td></tr>
+<tr><td>پنکه</td><td>3</td><td>-</td></tr>
+<tr><td>لامپ</td><td>17</td><td>70</td></tr>
+<tr><td>سیستم</td><td>7</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>5</td><td>-</td></tr>
+<tr><td>یخچال</td><td>2</td><td>-</td></tr>
+<tr><td>سماور برقی</td><td>2</td><td>-</td></tr>
+<tr><td>لامپ گرد</td><td>1</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>6</td><td>-</td></tr>
+<tr><td>تلویزیون</td><td>1</td><td>-</td></tr>
+<tr><td>مهتابی بزرگ</td><td>12</td><td>-</td></tr>
+<tr><td>آب سرد کن</td><td>1</td><td>-</td></tr>
+<tr><td>آکواریوم</td><td>2</td><td>-</td></tr>
+<tr><td>دریچه هواساز</td><td>2</td><td>-</td></tr>
+</table>
+<hr style="border:1px dashed #ffffff;margin-top:10px;">
+<p><strong>تعداد پرسنل:</strong> 3</p>
+</div>
+`);
+
+allTags.push({ marker: tag_medicalEquip, baseSize: 12 });
+
+
+
+
+var tag_medicalRecords = L.marker(
+    map.unproject([18400, 4800], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("امحا مدارک پزشکی", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'>
+<h2 style='margin-top:0;'>امحا مدارک پزشکی</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>پنل سقفی</td><td>2</td><td>-</td></tr>
+<tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
+<tr><td>کولر آبی</td><td>1</td><td>-</td></tr>
+<tr><td>پنکه</td><td>1</td><td>-</td></tr>
+<tr><td>هواساز</td><td>1</td><td>-</td></tr>
+<tr><td>اسکنر</td><td>2</td><td>-</td></tr>
+<tr><td>سیستم</td><td>3</td><td>-</td></tr>
+</table>
+<hr style="border:1px dashed #ffffff;margin-top:10px;">
+<p><strong>تعداد پرسنل:</strong> 1</p>
+</div>
+`);
+
+allTags.push({ marker: tag_medicalRecords, baseSize: 12 });
+
+
+
+
+var tag_obstetrics = L.marker(
+    map.unproject([18400, 5300], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("اورژانس مامایی", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'>
+<h2 style='margin-top:0;'>اورژانس مامایی</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>نوار قلب</td><td>1</td><td>-</td></tr>
+<tr><td>وارمر تابشی نوزاد</td><td>1</td><td>-</td></tr>
+<tr><td>سونی کیت</td><td>1</td><td>-</td></tr>
+<tr><td>مهتابی سه تایی</td><td>4</td><td>-</td></tr>
+<tr><td>یخچال</td><td>1</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>2</td><td>-</td></tr>
+<tr><td>سیستم</td><td>1</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>1</td><td>-</td></tr>
+<tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
+</table>
+</div>
+`);
+
+allTags.push({ marker: tag_obstetrics, baseSize: 12 });
+
+var tag_discharge = L.marker(
+    map.unproject([18400, 5800], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("ترخیص", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:600px;'>
+<h2 style='margin-top:0;'>ترخیص</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>دریچه هواساز</td><td>8</td><td>-</td></tr>
+<tr><td>پنل سقفی</td><td>10</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>4</td><td>-</td></tr>
+<tr><td>سیستم</td><td>4</td><td>-</td></tr>
+<tr><td>یخچال</td><td>1</td><td>-</td></tr>
+<tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
+<tr><td>مهتابی دوتایی کوچک</td><td>21</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>1</td><td>-</td></tr>
+</table>
+<hr style="border:1px dashed #ffffff;margin-top:10px;">
+<p><strong>تعداد پرسنل:</strong> 4</p>
+</div>
+`);
+
+allTags.push({ marker: tag_discharge, baseSize: 12 });
+
+
+
+
+var tag_misc = L.marker(
+    map.unproject([18400, 6300], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("سایر", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
+<h2 style='margin-top:0;'>سایر</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>لامپ</td><td>42</td><td>-</td></tr>
+<tr><td>مهتابی</td><td>7</td><td>-</td></tr>
+<tr><td>اگزوز فن</td><td>19</td><td>-</td></tr>
+<tr><td>آب سرد کن</td><td>3</td><td>-</td></tr>
+<tr><td>یخچال</td><td>2</td><td>-</td></tr>
+<tr><td>سیستم</td><td>3</td><td>-</td></tr>
+<tr><td>هواساز</td><td>10</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>2</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>1</td><td>-</td></tr>
+<tr><td>مهتابی دوتایی بزرگ</td><td>34</td><td>-</td></tr>
+<tr><td>هواکش</td><td>13</td><td>-</td></tr>
+<tr><td>کولر گازی</td><td>2</td><td>-</td></tr>
+<tr><td>تلویزیون</td><td>2</td><td>-</td></tr>
+<tr><td>سونوگرافی کودک</td><td>1</td><td>-</td></tr>
+<tr><td>بخاری برقی</td><td>1</td><td>-</td></tr>
+<tr><td>بلندگو</td><td>2</td><td>-</td></tr>
+<tr><td>رادیاتور</td><td>3</td><td>-</td></tr>
+<tr><td>کتری برقی</td><td>1</td><td>-</td></tr>
+<tr><td>ماکروفر</td><td>1</td><td>-</td></tr>
+<tr><td>هیتر</td><td>1</td><td>1500</td></tr>
+<tr><td>جارو برقی</td><td>1</td><td>-</td></tr>
+</table>
+</div>
+`);
+
+allTags.push({ marker: tag_misc, baseSize: 12 });
+
+var tag_emergency = L.marker(
+    map.unproject([18400, 6800], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("بخش اورژانس", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
+<h2 style='margin-top:0;'>بخش اورژانس</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>نام تجهیز</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>الکتروشوک قلبی</td><td>3</td><td>180</td></tr>
+<tr><td>پمپ تزریق سرنگ و سرم</td><td>7</td><td>7.2</td></tr>
+<tr><td>ساکشن جراحی</td><td>2</td><td>220</td></tr>
+<tr><td>الکتروکاردیوگراف</td><td>4</td><td>57</td></tr>
+<tr><td>وارمر تابشی نوزاد</td><td>1</td><td>650</td></tr>
+<tr><td>مانیتور علایم حیاتی</td><td>17</td><td>70</td></tr>
+<tr><td>انکوباتور نوزاد</td><td>1</td><td>440</td></tr>
+<tr><td>وارمر خون</td><td>1</td><td>280</td></tr>
+<tr><td>ونتیلاتور</td><td>2</td><td>800</td></tr>
+<tr><td>سونوگرافی</td><td>1</td><td>500</td></tr>
+<tr><td>مهتابی دوتایی بزرگ</td><td>62</td><td>72</td></tr>
+<tr><td>مهتابی دوتایی کوچک</td><td>8</td><td>36</td></tr>
+<tr><td>پنل سقفی</td><td>13</td><td>55</td></tr>
+<tr><td>لامپ گرد سقفی</td><td>7</td><td>18</td></tr>
+<tr><td>دهانه هواکش</td><td>24</td><td>-</td></tr>
+<tr><td>دهانه فن کویل</td><td>29</td><td>-</td></tr>
+<tr><td>یخچال</td><td>3</td><td>-</td></tr>
+<tr><td>یخچال دارویی</td><td>2</td><td>200</td></tr>
+<tr><td>سیستم</td><td>8</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>3</td><td>-</td></tr>
+<tr><td>آبسردکن</td><td>2</td><td>-</td></tr>
+<tr><td>دستگاه خودپرداز</td><td>1</td><td>-</td></tr>
+<tr><td>ماکروفر</td><td>1</td><td>-</td></tr>
+<tr><td>تلویزیون</td><td>2</td><td>-</td></tr>
+</table>
+<hr style="border:1px dashed #ffffff;margin-top:10px;">
+<p><strong>تعداد پرسنل:</strong> 85</p>
+</div>
+`);
+
+allTags.push({ marker: tag_emergency, baseSize: 12 });
+
+
+
+
+var tag_internal = L.marker(
+    map.unproject([18400, 7300], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("بخش داخلی", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
+<h2 style='margin-top:0;'>بخش داخلی</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>نام تجهیز</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>الکتروشوک قلبی</td><td>1</td><td>180</td></tr>
+<tr><td>پمپ تزریق سرنگ و سرم</td><td>3</td><td>7.2</td></tr>
+<tr><td>ساکشن جراحی</td><td>1</td><td>220</td></tr>
+<tr><td>الکتروکاردیوگراف</td><td>2</td><td>57</td></tr>
+<tr><td>مانیتور علایم حیاتی</td><td>1</td><td>70</td></tr>
+<tr><td>تشک مواج</td><td>4</td><td>-</td></tr>
+<tr><td>ونتیلاتور</td><td>1</td><td>800</td></tr>
+<tr><td>پنل سقفی</td><td>83</td><td>55</td></tr>
+<tr><td>لامپ گرد سقفی</td><td>39</td><td>18</td></tr>
+<tr><td>دهانه هواکش</td><td>37</td><td>-</td></tr>
+<tr><td>دهانه فن کویل</td><td>25</td><td>-</td></tr>
+<tr><td>یخچال</td><td>14</td><td>-</td></tr>
+<tr><td>یخچال دارویی</td><td>2</td><td>200</td></tr>
+<tr><td>سیستم</td><td>4</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>3</td><td>-</td></tr>
+<tr><td>تلویزیون</td><td>14</td><td>-</td></tr>
+</table>
+<hr style="border:1px dashed #ffffff;margin-top:10px;">
+<p><strong>تعداد پرسنل:</strong> 40</p>
+</div>
+`);
+
+allTags.push({ marker: tag_internal, baseSize: 12 });
+
+
+
+
+var tag_children = L.marker(
+    map.unproject([18400, 7800], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("بخش اطفال", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
+<h2 style='margin-top:0;'>بخش اطفال</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>Equipment</th>
+    <th>Count</th>
+    <th>Power (W)</th>
+</tr>
+<tr><td>Defibrillator</td><td>1</td><td>180</td></tr>
+<tr><td>Syringe & Infusion Pump</td><td>2</td><td>7.2</td></tr>
+<tr><td>Surgical Suction</td><td>1</td><td>220</td></tr>
+<tr><td>Phototherapy</td><td>8</td><td>80-320</td></tr>
+<tr><td>Infant Warmer</td><td>1</td><td>650</td></tr>
+<tr><td>Vital Signs Monitor</td><td>3</td><td>70</td></tr>
+<tr><td>Ceiling Panel</td><td>87</td><td>55</td></tr>
+<tr><td>Ceiling Round Lamp</td><td>57</td><td>18</td></tr>
+<tr><td>Air Vent</td><td>33</td><td>-</td></tr>
+<tr><td>Fan Coil Outlet</td><td>31</td><td>-</td></tr>
+<tr><td>Refrigerator</td><td>14</td><td>-</td></tr>
+<tr><td>Television</td><td>15</td><td>-</td></tr>
+<tr><td>Computer</td><td>4</td><td>-</td></tr>
+<tr><td>Printer</td><td>3</td><td>-</td></tr>
+</table>
+<hr style="border:1px dashed #ffffff;margin-top:10px;">
+<p><strong>تعداد پرسنل:</strong> 43</p>
+</div>
+`);
+
+allTags.push({ marker: tag_children, baseSize: 12 });
+
+
+
+
+var tag_CSR = L.marker(
+    map.unproject([18400, 8300], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("CSR", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
+<h2 style='margin-top:0;'>CSR</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>سیستم </td><td>1</td><td>-</td></tr>
+<tr><td>پنل سقفی</td><td>31</td><td>-</td></tr>
+<tr><td>دریچه هواکش</td><td>19</td><td>-</td></tr>
+<tr><td>یخچال</td><td>2</td><td>-</td></tr>
+<tr><td>مهتابی دوتایی بزرگ</td><td>2</td><td>-</td></tr>
+<tr><td>هواساز</td><td>1</td><td>-</td></tr>
+<tr><td>اتوکلاو بخار</td><td>5</td><td>-</td></tr>
+<tr><td>اتوکلاو پلاسما</td><td>1</td><td>-</td></tr>
+<tr><td>التراسونیک</td><td>1</td><td>-</td></tr>
+<tr><td>ست شستشو</td><td>2</td><td>-</td></tr>
+<tr><td>آب سرد کن</td><td>5</td><td>-</td></tr>
+<tr><td>ماکروفر</td><td>1</td><td>-</td></tr>
+<tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
+<tr><td>تلویزیون</td><td>1</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>2</td><td>-</td></tr>
+</table>
+</div>
+`);
+
+allTags.push({ marker: tag_CSR, baseSize: 12 });
+
+
+var tag_laboratory = L.marker(
+    map.unproject([18400, 8800], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("آزمایشگاه", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
+<h2 style='margin-top:0;'>آزمایشگاه</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>الکتروآنالایزر</td><td>2</td><td>-</td></tr>
+<tr><td>سانتریفیوژ</td><td>8</td><td>-</td></tr>
+<tr><td>بلادگاز</td><td>2</td><td>-</td></tr>
+<tr><td>فریزر و یخچال</td><td>7</td><td>-</td></tr>
+<tr><td>سدیمان ریدر</td><td>1</td><td>-</td></tr>
+<tr><td>مهتابی دوتایی بزرگ</td><td>44</td><td>-</td></tr>
+<tr><td>اتوآنالایزر</td><td>4</td><td>-</td></tr>
+<tr><td>سل کانتر</td><td>4</td><td>-</td></tr>
+<tr><td>دریچه هواکش</td><td>2</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>19</td><td>-</td></tr>
+<tr><td>الایزوریدر</td><td>1</td><td>-</td></tr>
+<tr><td>سیستم</td><td>14</td><td>-</td></tr>
+<tr><td>الکتروکلدمینانس</td><td>1</td><td>-</td></tr>
+<tr><td>تلویزیون</td><td>1</td><td>-</td></tr>
+<tr><td>فور</td><td>2</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>7</td><td>-</td></tr>
+<tr><td>بن ماری</td><td>3</td><td>-</td></tr>
+<tr><td>کولر گازی</td><td>1</td><td>-</td></tr>
+<tr><td>انکوباتور</td><td>2</td><td>-</td></tr>
+<tr><td>اتوکلاب</td><td>21</td><td>-</td></tr>
+<tr><td>یخچال</td><td>4</td><td>-</td></tr>
+<tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
+<tr><td>ساکسی درم</td><td>2</td><td>-</td></tr>
+<tr><td>پنکه</td><td>1</td><td>-</td></tr>
+<tr><td>آب مقطر گیری</td><td>2</td><td>-</td></tr>
+<tr><td>پنل سقفی</td><td>4</td><td>-</td></tr>
+</table>
+<hr style="border:1px dashed #ffffff;margin-top:10px;">
+<p><strong>تعداد پرسنل:</strong> 33</p>
+</div>
+`);
+
+allTags.push({ marker: tag_laboratory, baseSize: 12 });
+
+
+var tag_radiology_ct = L.marker(
+    map.unproject([18400, 9300], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("رادیولوژی و سی تی اسکن", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
+<h2 style='margin-top:0;'>رادیولوژی و سی‌تی‌اسکن</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>رادیولوژی دیجیتال</td><td>2</td><td>-</td></tr>
+<tr><td>مهتابی دوتایی بزرگ</td><td>25</td><td>-</td></tr>
+<tr><td>اسپلیت</td><td>6</td><td>-</td></tr>
+<tr><td>رادیولوژی آنالوگ</td><td>1</td><td>-</td></tr>
+<tr><td>دستگاه OPG</td><td>1</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>6</td><td>-</td></tr>
+<tr><td>سیستم </td><td>17</td><td>-</td></tr>
+<tr><td>الکتروشوک</td><td>2</td><td>-</td></tr>
+<tr><td>سی تی اسکن</td><td>1</td><td>-</td></tr>
+<tr><td>ساکشن جراحی</td><td>1</td><td>-</td></tr>
+<tr><td>دستگاه تک دندان</td><td>1</td><td>-</td></tr>
+<tr><td>پرینتر زیراکس</td><td>2</td><td>-</td></tr>
+<tr><td>پنل سقفی</td><td>16</td><td>-</td></tr>
+<tr><td>آمپلی‌فایر</td><td>2</td><td>-</td></tr>
+<tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
+<tr><td>ماکروفر</td><td>1</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>7</td><td>-</td></tr>
+<tr><td>آبسردکن</td><td>1</td><td>-</td></tr>
+<tr><td>دستگاه سونوگرافی</td><td>1</td><td>-</td></tr>
+<tr><td>پنکه</td><td>2</td><td>-</td></tr>
+<tr><td>مهتابی دوتایی کوچک</td><td>23</td><td>-</td></tr>
+</table>
+<hr style="border:1px dashed #ffffff;margin-top:10px;">
+<p><strong>تعداد پرسنل:</strong> 3</p>
+</div>
+`);
+
+allTags.push({ marker: tag_radiology_ct, baseSize: 12 });
+
+var tag_pathology = L.marker(
+    map.unproject([18400, 9800], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("پاتولوژی", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
+<h2 style='margin-top:0;'>پاتولوژی</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>پنل سقفی</td><td>5</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>9</td><td>-</td></tr>
+<tr><td>یخچال</td><td>2</td><td>-</td></tr>
+<tr><td>هود پزشکی</td><td>1</td><td>-</td></tr>
+<tr><td>ترازو پزشکی</td><td>2</td><td>-</td></tr>
+<tr><td>فروزن ساکشن</td><td>1</td><td>-</td></tr>
+<tr><td>پارافین ذوب</td><td>1</td><td>-</td></tr>
+<tr><td>کلدپلیت</td><td>2</td><td>-</td></tr>
+<tr><td>بن ماری</td><td>1</td><td>-</td></tr>
+<tr><td>مهتابی دوتایی بزرگ</td><td>23</td><td>-</td></tr>
+<tr><td>سانتریفیوژ</td><td>2</td><td>-</td></tr>
+<tr><td>فور</td><td>1</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>1</td><td>-</td></tr>
+<tr><td>سیستم</td><td>1</td><td>-</td></tr>
+<tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
+<tr><td>ماکروفر</td><td>1</td><td>-</td></tr>
+</table>
+<hr style="border:1px dashed #ffffff;margin-top:10px;">
+<p><strong>تعداد پرسنل:</strong> 4</p>
+</div>
+`);
+
+allTags.push({ marker: tag_pathology, baseSize: 12 });
+
+
+
+var tag_special_clinic = L.marker(
+    map.unproject([17900, 1300], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("درمانگاه تخصصی", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:800px;'>
+<h2 style='margin-top:0;'>درمانگاه تخصصی</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>تلویزیون</td><td>3</td><td>-</td></tr>
+<tr><td>مانیتور</td><td>18</td><td>-</td></tr>
+<tr><td>پنکه</td><td>8</td><td>-</td></tr>
+<tr><td>اره گچ‌بُری</td><td>1</td><td>-</td></tr>
+<tr><td>سیستم</td><td>26</td><td>-</td></tr>
+<tr><td>دریچه هواکش</td><td>90</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>30</td><td>-</td></tr>
+<tr><td>نگاتوسکوپ</td><td>9</td><td>-</td></tr>
+<tr><td>فنال مانیتورینگ</td><td>1</td><td>-</td></tr>
+<tr><td>چراغ سیار</td><td>4</td><td>-</td></tr>
+<tr><td> مهتابی دوتایی بزرگ</td><td>129</td><td>-</td></tr>
+<tr><td>دستگاه نوار قلب</td><td>2</td><td>-</td></tr>
+<tr><td>اسکنر فروشگاهی</td><td>1</td><td>-</td></tr>
+<tr><td>مانیتور علایم حیاتی</td><td>2</td><td>-</td></tr>
+<tr><td>الکتروشوک</td><td>1</td><td>-</td></tr>
+<tr><td>یخچال</td><td>4</td><td>-</td></tr>
+<tr><td>اسپلیت</td><td>2</td><td>-</td></tr>
+<tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
+<tr><td>لنزومتر</td><td>2</td><td>-</td></tr>
+<tr><td>اولتراسونیک</td><td>1</td><td>-</td></tr>
+<tr><td>آمالگاماتور</td><td>3</td><td>-</td></tr>
+<tr><td>ساکشن جراحی</td><td>4</td><td>-</td></tr>
+<tr><td>یونیت دندان‌پزشکی</td><td>3</td><td>-</td></tr>
+<tr><td>دستگاه جرم‌گیری</td><td>3</td><td>-</td></tr>
+<tr><td>اسلیت لامپ</td><td>1</td><td>-</td></tr>
+<tr><td>یاگ لیزر</td><td>1</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>3</td><td>-</td></tr>
+<tr><td>ادیومتری</td><td>2</td><td>-</td></tr>
+<tr><td>اتورفرکتومتر</td><td>2</td><td>-</td></tr>
+</table>
+<hr style="border:1px dashed #ffffff;margin-top:10px;">
+<p><strong>تعداد پرسنل:</strong> 51</p>
+</div>
+`);
+
+allTags.push({ marker: tag_special_clinic, baseSize: 12 });
+
+
+
+
+var tag_general_clinic = L.marker(
+    map.unproject([17900, 1800], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("درمانگاه عمومی", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:800px;'>
+<h2 style='margin-top:0;'>درمانگاه عمومی</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr><th>تجهیزات</th><th>تعداد</th><th>توان مصرفی (W)</th></tr>
+<tr><td>دریچه هواکش</td><td>22</td><td>-</td></tr>
+<tr><td>مهتابی دوتایی بزرگ</td><td>30</td><td>-</td></tr>
+<tr><td>سیستم</td><td>6</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>1</td><td>-</td></tr>
+<tr><td>پنکه</td><td>6</td><td>-</td></tr>
+<tr><td>دستگاه نوارعضله</td><td>1</td><td>-</td></tr>
+<tr><td>یخچال</td><td>1</td><td>-</td></tr>
+<tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
+<tr><td>بخاری برقی</td><td>1</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>12</td><td>-</td></tr>
+<tr><td>دستگاه کافوبات</td><td>1</td><td>-</td></tr>
+<tr><td>آب سرد کن</td><td>1</td><td>-</td></tr>
+<tr><td>تلویزیون</td><td>1</td><td>-</td></tr>
+</table>
+<hr style="border:1px dashed #ffffff;margin-top:10px;">
+<p><strong>تعداد پرسنل:</strong> 20</p>
+</div>
+`);
+
+allTags.push({ marker: tag_general_clinic, baseSize: 12 });
+
+
+
+var tag_cardiology = L.marker(
+    map.unproject([17900, 2300], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("بخش قلب", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:800px;'>
+<h2 style='margin-top:0;'>بخش قلب</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>الکتروشوک قلبی</td><td>1</td><td>180</td></tr>
+<tr><td>الکتروکاردیوگراف</td><td>2</td><td>57</td></tr>
+<tr><td>پمپ سرنگ و سرم</td><td>10</td><td>7.2</td></tr>
+<tr><td>ساکشن جراحی</td><td>1</td><td>220</td></tr>
+<tr><td>مانیتور علائم حیاتی</td><td>6</td><td>70</td></tr>
+<tr><td>پنل سقفی</td><td>45</td><td>-</td></tr>
+<tr><td>سیستم</td><td>5</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>3</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>26</td><td>-</td></tr>
+<tr><td>مهتابی دوتایی بزرگ</td><td>35</td><td>-</td></tr>
+<tr><td>یخچال</td><td>15</td><td>-</td></tr>
+<tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
+<tr><td>ماکروفر</td><td>1</td><td>-</td></tr>
+<tr><td>دریچه هواکش</td><td>24</td><td>-</td></tr>
+<tr><td>لامپ گرد سقفی</td><td>18</td><td>-</td></tr>
+<tr><td>تلویزیون</td><td>13</td><td>-</td></tr>
+<tr><td>آبسردکن</td><td>13</td><td>-</td></tr>
+</table>
+<hr style="border:1px dashed #ffffff;margin-top:10px;">
+<p><strong>تعداد پرسنل:</strong> 27</p>
+</div>
+`);
+
+allTags.push({ marker: tag_cardiology, baseSize: 12 });
+
+
+
+
+var tag_sina = L.marker(
+    map.unproject([17900, 2800], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("بخش سینا", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
+<h2 style='margin-top:0;'>بخش سینا</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+
+</table>
+<hr style="border:1px dashed #ffffff;margin-top:10px;">
+<p><strong>تعداد پرسنل:</strong> 6</p>
+
+</div>
+`);
+
+allTags.push({ marker: tag_sina, baseSize: 12 });
+
+
+var tag_dialysis = L.marker(
+    map.unproject([17900, 3300], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("بخش دیالیز", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
+<h2 style='margin-top:0;'>بخش دیالیز</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>الکتروشوک قلبی</td><td>1</td><td>180</td></tr>
+<tr><td>پمپ تزریق سرنگ و سرم</td><td>1</td><td>7.2</td></tr>
+<tr><td>ساکشن جراحی</td><td>1</td><td>220</td></tr>
+<tr><td>الکتروکاردیوگراف</td><td>1</td><td>57</td></tr>
+<tr><td>مانیتور علائم حیاتی</td><td>1</td><td>70</td></tr>
+<tr><td>ونتیلاتور</td><td>1</td><td>800</td></tr>
+<tr><td>دستگاه دیالیز</td><td>10</td><td>1700</td></tr>
+<tr><td>مهتابی دوتایی بزرگ</td><td>21</td><td>72</td></tr>
+<tr><td>لامپ گرد سقفی</td><td>3</td><td>18</td></tr>
+<tr><td>هواکش</td><td>4</td><td>-</td></tr>
+<tr><td>فن‌کوئل</td><td>29</td><td>-</td></tr>
+<tr><td>یخچال</td><td>1</td><td>-</td></tr>
+<tr><td>سیستم کامپیوتر</td><td>1</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>1</td><td>-</td></tr>
+<tr><td>تلویزیون</td><td>2</td><td>-</td></tr>
+<tr><td>مایکروفر</td><td>1</td><td>-</td></tr>
+<tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
+</table>
+<hr style="border:1px dashed #ffffff;margin-top:10px;">
+<p><strong>تعداد پرسنل:</strong> 9</p>
+</div>
+`);
+
+allTags.push({ marker: tag_dialysis, baseSize: 12 });
+
+
+var tag_physiotherapy = L.marker(
+    map.unproject([17900, 3800], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+
+.bindTooltip("بخش فیزیوتراپی", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+}).bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
+<h2 style='margin-top:0;'>بخش فیزیوتراپی</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>چراغ IR</td><td>10</td><td>750</td></tr>
+<tr><td>دیاترمی</td><td>1</td><td>400</td></tr>
+<tr><td>ویبراتور</td><td>3</td><td>220</td></tr>
+<tr><td>لیزر پرتوان</td><td>1</td><td>57</td></tr>
+<tr><td>CPM</td><td>3</td><td>70</td></tr>
+<tr><td>TENS</td><td>1</td><td>800</td></tr>
+<tr><td>مهتابی دوتایی بزرگ</td><td>12</td><td>72</td></tr>
+<tr><td>مهتابی دوتایی کوچک</td><td>8</td><td>36</td></tr>
+<tr><td>لامپ گرد سقفی</td><td>3</td><td>18</td></tr>
+<tr><td>هواکش</td><td>7</td><td>-</td></tr>
+<tr><td>فن‌کوئل</td><td>10</td><td>-</td></tr>
+<tr><td>سیستم کامپیوتر</td><td>3</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>1</td><td>-</td></tr>
+<tr><td>آب‌سردکن</td><td>1</td><td>-</td></tr>
+</table>
+<hr style="border:1px dashed #ffffff;margin-top:10px;">
+<p><strong>تعداد پرسنل:</strong> 5</p>
+</div>
+`);
+
+allTags.push({ marker: tag_physiotherapy, baseSize: 12 });
+
+
+var tag_reception = L.marker(
+    map.unproject([17900, 4300], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("پذیرش", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
+<h2 style='margin-top:0;'>پذیرش</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>مهتابی دوتایی بزرگ</td><td>29</td><td>-</td></tr>
+<tr><td>سیستم کامپیوتر</td><td>10</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>4</td><td>-</td></tr>
+<tr><td>فن‌کوئل</td><td>7</td><td>-</td></tr>
+<tr><td>هواکش</td><td>15</td><td>-</td></tr>
+<tr><td>یخچال</td><td>1</td><td>-</td></tr>
+<tr><td>پنکه</td><td>2</td><td>-</td></tr>
+<tr><td>پنکه سقفی</td><td>5</td><td>-</td></tr>
+</table>
+<hr style="border:1px dashed #ffffff;margin-top:10px;">
+<p><strong>تعداد پرسنل:</strong> 19</p>
+</div>
+`);
+
+allTags.push({ marker: tag_reception, baseSize: 12 });
+
+
+
+var tag_pharmacy = L.marker(
+    map.unproject([17900, 4800], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("داروخانه", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
+<h2 style='margin-top:0;'>داروخانه</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>مهتابی دوتایی بزرگ</td><td>28</td><td>-</td></tr>
+<tr><td>یخچال</td><td>1</td><td>-</td></tr>
+<tr><td>یخچال دارویی</td><td>3</td><td>-</td></tr>
+<tr><td>سیستم کامپیوتر</td><td>7</td><td>-</td></tr>
+<tr><td>پنل سقفی</td><td>10</td><td>-</td></tr>
+<tr><td>فن‌کوئل</td><td>7</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>4</td><td>-</td></tr>
+<tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
+<tr><td>قهوه‌ساز</td><td>1</td><td>-</td></tr>
+<tr><td>آب‌سردکن</td><td>1</td><td>-</td></tr>
+<tr><td>دستگاه نوبت‌گیر</td><td>5</td><td>-</td></tr>
+<tr><td>تلویزیون</td><td>1</td><td>-</td></tr>
+<tr><td>عابر بانک</td><td>1</td><td>-</td></tr>
+</table>
+<hr style="border:1px dashed #ffffff;margin-top:10px;">
+<p><strong>تعداد پرسنل:</strong> 16</p>
+</div>
+`);
+
+allTags.push({ marker: tag_pharmacy, baseSize: 12 });
+
+
+
+
+var tag_laundry_tailoring = L.marker(
+    map.unproject([17900, 5300], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("لنژری و خیاط‌ خانه", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
+<h2 style='margin-top:0;'>لنژری و خیاط‌ خانه</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>مهتابی دوتایی بزرگ</td><td>12</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>3</td><td>-</td></tr>
+<tr><td>پنکه</td><td>3</td><td>-</td></tr>
+<tr><td>چرخ خیاطی</td><td>6</td><td>-</td></tr>
+<tr><td>قیچی برقی</td><td>2</td><td>-</td></tr>
+<tr><td>هواکش</td><td>15</td><td>-</td></tr>
+<tr><td>آب‌سردکن  یخچال</td><td>1</td><td>-</td></tr>
+<tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
+<tr><td>سیستم </td><td>1</td><td>-</td></tr>
+<tr><td>پنل سقفی</td><td>31</td><td>-</td></tr>
+<tr><td>لامپ گرد سقفی</td><td>17</td><td>-</td></tr>
+<tr><td>کولر آبی</td><td>4</td><td>-</td></tr>
+<tr><td>دستگاه پرس</td><td>2</td><td>-</td></tr>
+<tr><td>جاروبرقی</td><td>1</td><td>-</td></tr>
+<tr><td>هواساز</td><td>29</td><td>-</td></tr>
+</table>
+<hr style="border:1px dashed #ffffff;margin-top:10px;">
+<p><strong>تعداد پرسنل:</strong> 9</p>
+</div>
+`);
+
+allTags.push({ marker: tag_laundry_tailoring, baseSize: 12 });
+
+
+
+
+var tag_kitchen = L.marker(
+    map.unproject([17900, 5800], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("آشپزخانه", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
+<h2 style='margin-top:0;'>آشپزخانه</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>آب سردکن</td><td>3</td><td>-</td></tr>
+<tr><td>تاپینگ سرد</td><td>1</td><td>-</td></tr>
+<tr><td>تاپینگ گرم</td><td>1</td><td>-</td></tr>
+<tr><td>سیستم </td><td>4</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>2</td><td>-</td></tr>
+<tr><td>گرم‌کن ایستاده</td><td>1</td><td>-</td></tr>
+<tr><td>گاز تک‌شعله</td><td>1</td><td>-</td></tr>
+<tr><td>یخ‌ساز</td><td>2</td><td>-</td></tr>
+<tr><td>پنل سقفی</td><td>77</td><td>-</td></tr>
+<tr><td>هواساز</td><td>24</td><td>-</td></tr>
+<tr><td>هواکش</td><td>6</td><td>-</td></tr>
+<tr><td>لامپ کوچک کم‌مصرف</td><td>48</td><td>-</td></tr>
+<tr><td>لامپ بزرگ کم‌مصرف</td><td>8</td><td>-</td></tr>
+<tr><td>اسکنر اثر انگشت</td><td>1</td><td>-</td></tr>
+<tr><td>گاری گرم‌کن غذا</td><td>1</td><td>-</td></tr>
+<tr><td>سلفون‌ برقی</td><td>1</td><td>-</td></tr>
+<tr><td>اجاق گاز</td><td>7</td><td>-</td></tr>
+<tr><td>پلوپز برنج</td><td>3</td><td>-</td></tr>
+<tr><td>سرخ‌کن</td><td>1</td><td>-</td></tr>
+<tr><td>کباب‌پز</td><td>3</td><td>-</td></tr>
+<tr><td>کباب‌گیر</td><td>1</td><td>-</td></tr>
+<tr><td>فر برقی</td><td>1</td><td>-</td></tr>
+<tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
+<tr><td>یخچال</td><td>2</td><td>-</td></tr>
+<tr><td>همزن برقی</td><td>1</td><td>-</td></tr>
+<tr><td>آبمیوه‌گیری</td><td>1</td><td>-</td></tr>
+<tr><td>چرخ گوشت برقی</td><td>1</td><td>-</td></tr>
+<tr><td>سبزی خردکن</td><td>1</td><td>-</td></tr>
+<tr><td>لامپ گرد سقفی</td><td>83</td><td>-</td></tr>
+</table>
+<hr style="border:1px dashed #ffffff;margin-top:10px;">
+<p><strong>تعداد پرسنل:</strong> 22</p>
+</div>
+`);
+
+allTags.push({ marker: tag_kitchen, baseSize: 12 });
+
+
+
+
+var tag_kindergarten = L.marker(
+    map.unproject([17900, 6300], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("مهد کودک", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
+<h2 style='margin-top:0;'>مهد کودک</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی(W)</th>
+</tr>
+<tr><td>مهتابی دوتایی بزرگ</td><td>29</td><td>-</td></tr>
+<tr><td>تلویزیون</td><td>3</td><td>-</td></tr>
+<tr><td>سیستم</td><td>1</td><td>-</td></tr>
+<tr><td>آب سردکن</td><td>1</td><td>-</td></tr>
+<tr><td>یخچال</td><td>1</td><td>-</td></tr>
+<tr><td>لامپ</td><td>8</td><td>-</td></tr>
+<tr><td>رادیاتور</td><td>14</td><td>-</td></tr>
+<tr><td>هواکش</td><td>5</td><td>-</td></tr>
+<tr><td>دیگ و مشعل</td><td>1</td><td>-</td></tr>
+<tr><td>کولر آبی</td><td>3</td><td>-</td></tr>
+</table>
+<hr style="border:1px dashed #ffffff;margin-top:10px;">
+<p><strong>تعداد پرسنل:</strong> 8</p>
+<hr style="border:1px dashed #ffffff;margin-top:10px;">
+<p><strong>تعداد پرسنل:</strong> 8</p>
+</div>
+`);
+
+allTags.push({ marker: tag_kindergarten, baseSize: 12 });
+
+
+
+
+var tag_cooperative = L.marker(
+    map.unproject([17900, 6800], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("شرکت تعاونی", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
+<h2 style='margin-top:0;'>شرکت تعاونی</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی(W)</th>
+</tr>
+<tr><td>بخاری برقی</td><td>1</td><td>-</td></tr>
+<tr><td>دستگاه پرس</td><td>1</td><td>-</td></tr>
+<tr><td>قهوه‌ساز خانگی</td><td>1</td><td>-</td></tr>
+<tr><td>حشره کش برقی</td><td>1</td><td>-</td></tr>
+<tr><td>یخچال ایستاده</td><td>9</td><td>-</td></tr>
+<tr><td>سیستم</td><td>3</td><td>-</td></tr>
+<tr><td>بخاری</td><td>1</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>1</td><td>-</td></tr>
+<tr><td>فکس</td><td>1</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>1</td><td>-</td></tr>
+<tr><td>دستگاه کپی</td><td>1</td><td>-</td></tr>
+<tr><td>یخچال فریزر صندوقی</td><td>4</td><td>-</td></tr>
+<tr><td>مهتابی دوتایی بزرگ</td><td>10</td><td>-</td></tr>
+<tr><td>ترازو برقی</td><td>1</td><td>-</td></tr>
+<tr><td>لامپ</td><td>3</td><td>-</td></tr>
+</table>
+</div>
+`);
+
+allTags.push({ marker: tag_cooperative, baseSize: 12 });
+
+
+
+var tag_drug_storage = L.marker(
+    map.unproject([17900, 7800], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("انبار دارویی", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
+<h2 style='margin-top:0;'>انبار دارویی</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی(W)</th>
+</tr>
+<tr><td>مهتابی بزرگ تکی</td><td>67</td><td>-</td></tr>
+<tr><td>آب سردکن</td><td>2</td><td>-</td></tr>
+<tr><td>مهتابی دوتایی بزرگ</td><td>55</td><td>-</td></tr>
+<tr><td>سیستم</td><td>2</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>2</td><td>-</td></tr>
+<tr><td>کولر گازی</td><td>4</td><td>-</td></tr>
+<tr><td>لامپ</td><td>5</td><td>-</td></tr>
+<tr><td>هواکش</td><td>12</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>4</td><td>-</td></tr>
+<tr><td>هواساز</td><td>1</td><td>-</td></tr>
+<tr><td>کولر آبی</td><td>1</td><td>-</td></tr>
+<tr><td>یخچال</td><td>1</td><td>-</td></tr>
+<tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
+</table>
+<hr style="border:1px dashed #ffffff;margin-top:10px;">
+<p><strong>تعداد پرسنل:</strong> 3</p>
+</div>
+`);
+
+allTags.push({ marker: tag_drug_storage, baseSize: 12 });
+
+
+
+
+
+
+var tag_storage_support = L.marker(
+    map.unproject([17900, 7300], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map)
+.bindTooltip("انبار پشتیبانی و تدارکات", {
+    permanent: false,
+    direction: "left",
+    offset: [-10, 0],
+    opacity: 1
+})
+.bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
+<h2 style='margin-top:0;'>انبار پشتیبانی و تدارکات</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی(W)</th>
+</tr>
+<tr><td>پنل سقفی</td><td>4</td><td>-</td></tr>
+<tr><td>اسپلیت</td><td>1</td><td>18000</td></tr>
+<tr><td>سیستم</td><td>2</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>2</td><td>-</td></tr>
+<tr><td>مهتابی بزرگ تکی</td><td>114</td><td>-</td></tr>
+<tr><td>جارو برقی</td><td>1</td><td>-</td></tr>
+<tr><td>یخچال</td><td>1</td><td>-</td></tr>
+<tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
+<tr><td>پروژکتور</td><td>3</td><td>-</td></tr>
+<tr><td>ترازو برقی</td><td>1</td><td>-</td></tr>
+<tr><td>باسکول برقی</td><td>1</td><td>-</td></tr>
+<tr><td>شوفاژ</td><td>2</td><td>-</td></tr>
+<tr><td>هواکش</td><td>1</td><td>-</td></tr>
+<tr><td>مهتابی دوتایی بزرگ</td><td>17</td><td>-</td></tr>
+<tr><td>دیگ و مشعل</td><td>2</td><td>-</td></tr>
+<tr><td>دیزل</td><td>1</td><td>-</td></tr>
+<tr><td>لامپ</td><td>8</td><td>-</td></tr>
+</table>
+<hr style="border:1px dashed #ffffff;margin-top:10px;">
+<p><strong>تعداد پرسنل:</strong> 3</p>
+</div>
+`);
+
+allTags.push({ marker: tag_storage_support, baseSize: 12 });
+
+
+
+
+
+// ---------------- AUTO RESIZE ON ZOOM ----------------
+map.on("zoomend", function() {
+    var z = map.getZoom();
+
+    allTags.forEach(tag => {
+        var newSize = tag.baseSize + (z * 2);
+        tag.marker.setIcon(squareIcon(newSize));
+    });
+});
+map.on("click", function(e) {
+    let p = map.project(e.latlng, map.getMaxZoom() - 1);
+    console.log("X:", Math.round(p.x), "Y:", Math.round(p.y));
+});
+
+
+</script>
+</body>
+</html>
+
