@@ -197,42 +197,38 @@ allTags.push({ marker: tag_jarrahi4, baseSize: 12 });
 var tag_CCU = L.marker(
     map.unproject([5376, 5639], map.getMaxZoom() - 1),
     { icon: squareIcon(8) }
-).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:650px;'>
-<h2 style='margin-top:0;'>بخش CCU</h2>
+).addTo(map).bindPopup(`
+<div style="padding:20px;background:#24344d;color:white;border-radius:8px;max-width:650px;">
+<h2 style="margin-top:0;">بخش CCU</h2>
 <hr>
-<table style='width:100%;text-align:right;'>
+<table style="width:100%;text-align:right;">
 <tr>
     <th>تجهیزات</th>
     <th>تعداد</th>
-    <th> توان مصرفی (W)</th>
-    
+    <th>توان مصرفی (W)</th>
 </tr>
 
-<tr><td>مهتابی دوتایی بزرگ</td><td>19</td><td>-</td><td>\
-<tr><td>الکتروکاردیوگراف</td><td>2</td><td>-</td><td>\
-<tr><td>مانیتور علائم حیاتی</td><td>8</td><td>-</td><td>\
-<tr><td>مانومتر اکسیژن</td><td>7</td><td>-</td><td>\
-<tr><td>تخت برقی</td><td>7</td><td>-</td><td>\
-<tr><td>الکتروشوک</td><td>2</td><td>-</td><td>\
-<tr><td>اکوکاردیوگرام</td><td>1</td><td>-</td><td>\
-<tr><td>تشک مواج</td><td>3</td><td>-</td><td>\
-<tr><td> پمپ تزریق سرنگ و سرم</td><td>16</td><td>-</td><td>\
-<tr><td>دریچه هواساز</td><td>-</td><td>-</td><td>\
-<tr><td>ونتیلاتور</td><td>1</td><td>-</td><td>\
-<tr><td>ساکشن جراحی</td><td>7</td><td>-</td><td>\
-<tr><td>سیستم</td><td>2</td><td>-</td><td>\
-<tr><td>یخچال</td><td>3</td><td>-</td><td>\
-<tr><td>پنکه</td><td>1</td><td>-</td><td>\
-<tr><td>سماور</td><td>1</td><td>-</td><td>\
-<tr><td>فنکوئل</td><td>12</td><td>-</td><td>\
-
-
-
+<tr><td>مهتابی دوتایی بزرگ</td><td>19</td><td>-</td></tr>
+<tr><td>الکتروکاردیوگراف</td><td>2</td><td>-</td></tr>
+<tr><td>مانیتور علائم حیاتی</td><td>8</td><td>-</td></tr>
+<tr><td>مانومتر اکسیژن</td><td>7</td><td>-</td></tr>
+<tr><td>تخت برقی</td><td>7</td><td>-</td></tr>
+<tr><td>الکتروشوک</td><td>2</td><td>-</td></tr>
+<tr><td>اکوکاردیوگرام</td><td>1</td><td>-</td></tr>
+<tr><td>تشک مواج</td><td>3</td><td>-</td></tr>
+<tr><td>پمپ تزریق سرنگ و سرم</td><td>16</td><td>-</td></tr>
+<tr><td>دریچه هواساز</td><td>-</td><td>-</td></tr>
+<tr><td>ونتیلاتور</td><td>1</td><td>-</td></tr>
+<tr><td>ساکشن جراحی</td><td>7</td><td>-</td></tr>
+<tr><td>سیستم</td><td>2</td><td>-</td></tr>
+<tr><td>یخچال</td><td>3</td><td>-</td></tr>
+<tr><td>پنکه</td><td>1</td><td>-</td></tr>
+<tr><td>سماور</td><td>1</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>12</td><td>-</td></tr>
 </table>
 </div>
 `);
 
-allTags.push({ marker: tag_CCU, baseSize: 12 });
 // ---------------- TAG 6 ----------------
 var tag_ICU = L.marker(
     map.unproject([6141, 5639], map.getMaxZoom() - 1),
@@ -333,23 +329,22 @@ allTags.push({ marker: tag_konferans, baseSize: 12 });
 var tag_amozesh1 = L.marker(
     map.unproject([9080, 1492], map.getMaxZoom() - 1),
     { icon: squareIcon(7) }
-).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'>\
-<h2 style='margin-top:0;'>کلاس آموزش</h2>\
-<hr>\
-<table style='width:100%;text-align:right;'>\
-<tr>\
-    <th>تجهیزات</th>\
-    <th>تعداد</th>\
-    <th>توان مصرفی (W)</th>\
-    
-</tr>\
-<tr><td>مهتابی کوچک دوتایی</td><td>18</td><td>-</td><td>\
-<tr><td>کولر گازی</td><td>1</td><td>-</td><td>\
-<tr><td>تلویزیون</td><td>1</td><td>-</td><td>\
-</table>\
-</div>`);
-
-allTags.push({ marker: tag_amozesh1, baseSize: 12 });
+).addTo(map).bindPopup(`
+<div style="padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;">
+<h2 style="margin-top:0;">کلاس آموزش</h2>
+<hr>
+<table style="width:100%;text-align:right;">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>مهتابی کوچک دوتایی</td><td>18</td><td>-</td></tr>
+<tr><td>کولر گازی</td><td>1</td><td>-</td></tr>
+<tr><td>تلویزیون</td><td>1</td><td>-</td></tr>
+</table>
+</div>
+`);
 
 // ---------------- TAG 10 ----------------
 var tag_amozesh2 = L.marker(
@@ -363,22 +358,21 @@ allTags.push({ marker: tag_amozesh2, baseSize: 12 });
 var tag_kakhdari = L.marker(
     map.unproject([6988, 4583], map.getMaxZoom() - 1),   
     { icon: squareIcon(5) }
-).addTo(map).bindPopup("<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'>\
-<h2 style='margin-top:0;'>کاخداری</h2>\
-<hr>\
-<table style='width:100%;text-align:right;'>\
-<tr>\
-    <th>تجهیزات</th>\
-    <th>تعداد</th>\
-    <th>توان مصرفی (W)</th>\
-    
-</tr>\
-<tr><td>لامپ کوچک</td><td>1</td><td>-</td><td>\
-<tr><td>والمر آب گرم</td><td>1</td><td>-</td><td>\
-</table>\
-</div>");
-
-allTags.push({ marker: tag_kakhdari, baseSize: 12 });
+).addTo(map).bindPopup(`
+<div style="padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;">
+<h2 style="margin-top:0;">کاخداری</h2>
+<hr>
+<table style="width:100%;text-align:right;">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>لامپ کوچک</td><td>1</td><td>-</td></tr>
+<tr><td>والمر آب گرم</td><td>1</td><td>-</td></tr>
+</table>
+</div>
+`);
 
 // ------------- TAG 12 -------------
 var tag_salon1 = L.marker(
