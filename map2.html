@@ -237,52 +237,89 @@ allTags.push({ marker: tag_CCU, baseSize: 12 });
 var tag_ICU = L.marker(
     map.unproject([6141, 5639], map.getMaxZoom() - 1),
     { icon: squareIcon(8) }
-).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:650px;'>
-<h2 style='margin-top:0;'>بخش ICU</h2>
-<hr>
-<table style='width:100%;text-align:right;'>
-<tr>
-    <th>تجهیزات</th>
-    <th>تعداد</th>
-    <th>توان مصرفی (W)</th>
-    
-</tr>
+).addTo(map).bindPopup(`
+<div style="padding:20px;background:#24344d;color:white;border-radius:8px;max-width:650px;">
+  <h2 style="margin-top:0;">بخش ICU</h2>
+  <hr>
+  <table style="width:100%;text-align:right;border-collapse:collapse;">
+    <tr>
+      <th>تجهیزات</th>
+      <th>تعداد</th>
+      <th>توان مصرفی (W)</th>
+    </tr>
 
-<tr><td>مهتابی دوتایی بزرگ</td><td>6</td><td>-</td><td>\
-<tr><td>پنل سقفی</td><td>21</td><td>-</td><td>\
-<tr><td>الکتروشوک</td><td>2</td><td>-</td><td>\
-<tr><td>الکتروکاردیوگراف</td><td>1</td><td>-</td><td>\
-<tr><td>پمپ تزریق سرنگ و و سرم</td><td>17</td><td>-</td><td>\
-<tr><td>بای پپ</td><td>4</td><td>-</td><td>\
-<tr><td>دستگاه ونتیلاتور</td><td>8</td><td>-</td><td>\
-<tr><td>ساکشن جراحی</td><td>6</td><td>-</td><td>\
-<tr><td>ساکشن پرتابل</td><td>1</td><td>-</td><td>\
-<tr><td>مانیتور علائم حیاتی</td><td>7</td><td>-</td><td>\
-<tr><td>مانیتور علائم حیاتی پرتابل</td><td>1</td><td>-</td><td>\
-<tr><td>رادیولوژی پرتابل</td><td>1</td><td>-</td><td>\
-<tr><td>تخت برقی</td><td>6</td><td>-</td><td>\
-<tr><td>تشک مواج</td><td>7</td><td>-</td><td>\
-<tr><td>سیستم</td><td>2</td><td>-</td><td>\
-<tr><td>پرینتر</td><td>1</td><td>-</td><td>\
-<tr><td>مانیتور مرکزی</td><td>1</td><td>-</td><td>\
-<tr><td>پمپ DVT</td><td>1</td><td>-</td><td>\
-<tr><td>دستگاه دیالیز</td><td>1</td><td>-</td><td>\
-<tr><td>بخور سرد</td><td>2</td><td>-</td><td>\
-<tr><td>بخور گرم</td><td>2</td><td>-</td><td>\
-<tr><td>یخچال</td><td>2</td><td>-</td><td>\
-<tr><td>یخچال دارویی</td><td>1</td><td>-</td><td>\
-<tr><td>پنکه</td><td>1</td><td>-</td><td>\
-<tr><td>سماور برقی</td><td>1</td><td>-</td><td>\
-<tr><td>فنکوئل</td><td>9</td><td>-</td><td>\
-<tr><td>هواساز</td><td>-</td><td>-</td><td>\
-
-</table>
+    <tr><td>مهتابی دوتایی بزرگ</td><td>6</td><td>-</td></tr>
+    <tr><td>پنل سقفی</td><td>21</td><td>-</td></tr>
+    <tr><td>الکتروشوک</td><td>2</td><td>-</td></tr>
+    <tr><td>الکتروکاردیوگراف</td><td>1</td><td>-</td></tr>
+    <tr><td>پمپ تزریق سرنگ و سرم</td><td>17</td><td>-</td></tr>
+    <tr><td>بای پپ</td><td>4</td><td>-</td></tr>
+    <tr><td>دستگاه ونتیلاتور</td><td>8</td><td>-</td></tr>
+    <tr><td>ساکشن جراحی</td><td>6</td><td>-</td></tr>
+    <tr><td>ساکشن پرتابل</td><td>1</td><td>-</td></tr>
+    <tr><td>مانیتور علائم حیاتی</td><td>7</td><td>-</td></tr>
+    <tr><td>مانیتور علائم حیاتی پرتابل</td><td>1</td><td>-</td></tr>
+    <tr><td>رادیولوژی پرتابل</td><td>1</td><td>-</td></tr>
+    <tr><td>تخت برقی</td><td>6</td><td>-</td></tr>
+    <tr><td>تشک مواج</td><td>7</td><td>-</td></tr>
+    <tr><td>سیستم</td><td>2</td><td>-</td></tr>
+    <tr><td>پرینتر</td><td>1</td><td>-</td></tr>
+    <tr><td>مانیتور مرکزی</td><td>1</td><td>-</td></tr>
+    <tr><td>پمپ DVT</td><td>1</td><td>-</td></tr>
+    <tr><td>دستگاه دیالیز</td><td>1</td><td>-</td></tr>
+    <tr><td>بخور سرد</td><td>2</td><td>-</td></tr>
+    <tr><td>بخور گرم</td><td>2</td><td>-</td></tr>
+    <tr><td>یخچال</td><td>2</td><td>-</td></tr>
+    <tr><td>یخچال دارویی</td><td>1</td><td>-</td></tr>
+    <tr><td>پنکه</td><td>1</td><td>-</td></tr>
+    <tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
+    <tr><td>فنکوئل</td><td>9</td><td>-</td></tr>
+    <tr><td>هواساز</td><td>-</td><td>-</td></tr>
+  </table>
 </div>
 `);
 
 allTags.push({ marker: tag_ICU, baseSize: 12 });
 
 // ---------------- TAG 7 ----------------
+var tag_NICU = L.marker(
+    map.unproject([11948, 6843], map.getMaxZoom() - 1),
+    { icon: squareIcon(10) }
+).addTo(map).bindPopup(`
+<div style="padding:20px;background:#24344d;color:white;border-radius:8px;max-width:650px;">
+  <h2 style="margin-top:0;">بخش NICU</h2>
+  <hr>
+  <table style="width:100%;text-align:right;border-collapse:collapse;">
+    <tr>
+      <th>تجهیزات</th>
+      <th>تعداد</th>
+      <th>توان مصرفی (W)</th>
+    </tr>
+
+    <tr><td>پنل سقفی</td><td>23</td><td>-</td></tr>
+    <tr><td>لامپ گرد سقفی</td><td>30</td><td>-</td></tr>
+    <tr><td>انکوباتور نوزاد</td><td>23</td><td>440</td></tr>
+    <tr><td>مانیتور علائم حیاتی</td><td>26</td><td>70</td></tr>
+    <tr><td>فوتوتراپی</td><td>22</td><td>80–320</td></tr>
+    <tr><td>رادیولوژی پرتابل</td><td>1</td><td>72</td></tr>
+    <tr><td>دستگاه سونوگرافی</td><td>1</td><td>500</td></tr>
+    <tr><td>ونتیلاتور</td><td>7</td><td>800</td></tr>
+    <tr><td>الکتروشوک</td><td>1</td><td>180</td></tr>
+    <tr><td>پمپ تزریق سرنگ و سرم</td><td>23</td><td>7.2</td></tr>
+    <tr><td>وارمر تابشی نوزاد</td><td>6</td><td>650</td></tr>
+    <tr><td>تخت احیا نوزاد</td><td>5</td><td>1100</td></tr>
+    <tr><td>سیستم</td><td>-</td><td>-</td></tr>
+    <tr><td>یخچال</td><td>6</td><td>-</td></tr>
+    <tr><td>یخچال دارویی</td><td>1</td><td>-</td></tr>
+    <tr><td>اسپلیت</td><td>1</td><td>-</td></tr>
+    <tr><td>ماکروفر</td><td>2</td><td>-</td></tr>
+    <tr><td>فنکوئل</td><td>6</td><td>-</td></tr>
+    <tr><td>دریچه هواساز</td><td>15</td><td>-</td></tr>
+  </table>
+</div>
+`);
+
+allTags.push({ marker: tag_NICU, baseSize: 12 });
 
 // ---------------- TAG 8 ----------------
 var tag_konferans = L.marker(
@@ -1472,6 +1509,7 @@ map.on("click", function(e) {
 </script>
 </body>
 </html>
+
 
 
 
