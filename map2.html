@@ -286,7 +286,42 @@ allTags.push({ marker: tag_ICU, baseSize: 12 });
 var tag_NICU = L.marker(
     map.unproject([11948, 6843], map.getMaxZoom() - 1),
     { icon: squareIcon(10) }
-).addTo(map).bindPopup("بخشNICU");
+).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:650px;'>
+<h2 style='margin-top:0;'>بخش NICU  </h2>
+<hr>
+<table style='width:100%;text-align:right;'>
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th> توان مصرفی (W)</th>
+    
+</tr>
+
+<tr><td>پنل سقفی</td><td>23</td><td>-</td><td>\
+<tr><td>لامپ گرد توسقفی</td><td>30</td><td>-</td><td>\
+<tr><td>انکوباتور نوزاد</td><td>23</td><td>440</td><td>\
+<tr><td>مانیتور علائم حیاتی</td><td>26</td><td>70</td><td>\
+<tr><td>فوتوتراپی</td><td>22</td><td>80-320</td><td>\
+<tr><td>رادیولوژی پرتابل</td><td>1</td><td>72</td><td>\
+<tr><td>دستگاه سونوگرافی </td><td>1</td><td>500</td><td>\
+<tr><td>ونتیلاتور</td><td>7</td><td>800</td><td>\
+<tr><td>الکتروشوک</td><td>1</td><td>180</td><td>\
+<tr><td> پمپ تزریق سرنگ و سرم</td><td>23</td><td>7.2</td><td>\
+<tr><td>وارمر تابشی نوزاد</td><td>6</td><td>650</td><td>\
+<tr><td>تخت احیا نوراد</td><td>5</td><td>1100</td><td>\
+<tr><td>سیستم</td><td>-</td><td>-</td><td>\
+<tr><td>یخچال</td><td>6</td><td>-</td><td>\
+<tr><td>یخچال دارویی</td><td>1</td><td>-</td><td>\
+<tr><td>اسپلیت</td><td>1</td><td>-</td><td>\
+<tr><td>ماکروفر</td><td>2</td><td>-</td><td>\
+<tr><td>فنکوئل</td><td>6</td><td>-</td><td>\
+<tr><td>دریچه هواساز</td><td>15</td><td>-</td><td>\
+
+
+</table>
+</div>
+`);
+
 
 allTags.push({ marker: tag_NICU, baseSize: 12 });
 
@@ -309,12 +344,12 @@ var tag_amozesh1 = L.marker(
 <tr>\
     <th>تجهیزات</th>\
     <th>تعداد</th>\
-    <th>توان هر واحد (kw)</th>\
-    <th>توان کل (kw)</th>\
+    <th>توان مصرفی (W)</th>\
+    
 </tr>\
-<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>\
-<tr><td>کولر گازی</td><td>1</td><td>-</td><td>-</td></tr>\
-<tr><td>تلویزیون</td><td>1</td><td>-</td><td>-</td></tr>\
+<tr><td>مهتابی کوچک دوتایی</td><td>18</td><td>-</td><td>\
+<tr><td>کولر گازی</td><td>1</td><td>-</td><td>\
+<tr><td>تلویزیون</td><td>1</td><td>-</td><td>\
 </table>\
 </div>`);
 
@@ -339,11 +374,11 @@ var tag_kakhdari = L.marker(
 <tr>\
     <th>تجهیزات</th>\
     <th>تعداد</th>\
-    <th>توان هر واحد (kw)</th>\
-    <th>توان کل (kw)</th>\
+    <th>توان مصرفی (W)</th>\
+    <
 </tr>\
-<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>\
-<tr><td>والمر آب گرم</td><td>1</td><td>-</td><td>-</td></tr>\
+<tr><td>لامپ کوچک</td><td>1</td><td>-</td><td>\
+<tr><td>والمر آب گرم</td><td>1</td><td>-</td><td>\
 </table>\
 </div>");
 
@@ -1478,5 +1513,6 @@ map.on("click", function(e) {
 </script>
 </body>
 </html>
+
 
 
