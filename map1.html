@@ -1802,6 +1802,79 @@ var tag_pathologyy = L.marker(
 `);
 
 allTags.push({ marker: tag_pathologyy, baseSize: 12 });
+
+
+    
+var tag_internall = L.marker(
+    map.unproject([9688, 2088], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map).bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
+<h2 style='margin-top:0;'>بخش داخلی</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>نام تجهیز</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>الکتروشوک قلبی</td><td>1</td><td>180</td></tr>
+<tr><td>پمپ تزریق سرنگ و سرم</td><td>3</td><td>7.2</td></tr>
+<tr><td>ساکشن جراحی</td><td>1</td><td>220</td></tr>
+<tr><td>الکتروکاردیوگراف</td><td>2</td><td>57</td></tr>
+<tr><td>مانیتور علایم حیاتی</td><td>1</td><td>70</td></tr>
+<tr><td>تشک مواج</td><td>4</td><td>-</td></tr>
+<tr><td>ونتیلاتور</td><td>1</td><td>800</td></tr>
+<tr><td>پنل سقفی</td><td>83</td><td>55</td></tr>
+<tr><td>لامپ گرد سقفی</td><td>39</td><td>18</td></tr>
+<tr><td>دهانه هواکش</td><td>37</td><td>-</td></tr>
+<tr><td>دهانه فن کویل</td><td>25</td><td>-</td></tr>
+<tr><td>یخچال</td><td>14</td><td>-</td></tr>
+<tr><td>یخچال دارویی</td><td>2</td><td>200</td></tr>
+<tr><td>سیستم</td><td>4</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>3</td><td>-</td></tr>
+<tr><td>تلویزیون</td><td>14</td><td>-</td></tr>
+</table>
+</div>
+`);
+
+allTags.push({ marker: tag_internall, baseSize: 12 });
+
+
+
+
+var tag_childrenn = L.marker(
+    map.unproject([12608, 2192], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map).bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
+<h2 style='margin-top:0;'>بخش اطفال</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>Equipment</th>
+    <th>Count</th>
+    <th>Power (W)</th>
+</tr>
+<tr><td>Defibrillator</td><td>1</td><td>180</td></tr>
+<tr><td>Syringe & Infusion Pump</td><td>2</td><td>7.2</td></tr>
+<tr><td>Surgical Suction</td><td>1</td><td>220</td></tr>
+<tr><td>Phototherapy</td><td>8</td><td>80-320</td></tr>
+<tr><td>Infant Warmer</td><td>1</td><td>650</td></tr>
+<tr><td>Vital Signs Monitor</td><td>3</td><td>70</td></tr>
+<tr><td>Ceiling Panel</td><td>87</td><td>55</td></tr>
+<tr><td>Ceiling Round Lamp</td><td>57</td><td>18</td></tr>
+<tr><td>Air Vent</td><td>33</td><td>-</td></tr>
+<tr><td>Fan Coil Outlet</td><td>31</td><td>-</td></tr>
+<tr><td>Refrigerator</td><td>14</td><td>-</td></tr>
+<tr><td>Television</td><td>15</td><td>-</td></tr>
+<tr><td>Computer</td><td>4</td><td>-</td></tr>
+<tr><td>Printer</td><td>3</td><td>-</td></tr>
+</table>
+</div>
+`);
+
+allTags.push({ marker: tag_childrenn, baseSize: 12 });
    
 
 // ---------------- AUTO RESIZE ON ZOOM ----------------
@@ -1822,6 +1895,7 @@ map.on("click", function(e) {
 </script>
 </body>
 </html>
+
 
 
 
