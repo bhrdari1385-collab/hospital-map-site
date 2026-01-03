@@ -1520,7 +1520,7 @@ allTags.push({ marker: tag_special_clinicc, baseSize: 12 });
 
  var tag_general_clinicc = L.marker(
     map.unproject([6900, 9253], map.getMaxZoom() - 1),
-    { icon: squareIcon(12) }
+    { icon: squareIcon(9) }
 ).addTo(map).bindPopup(`
 <div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:800px;'>
 <h2 style='margin-top:0;'>درمانگاه عمومی</h2>
@@ -1551,7 +1551,7 @@ allTags.push({ marker: tag_general_clinicc, baseSize: 12 });
 
     var tag_cardiologyy = L.marker(
     map.unproject([6776, 2192], map.getMaxZoom() - 1),
-    { icon: squareIcon(12) }
+    { icon: squareIcon(9) }
 ).addTo(map).bindPopup(`
 <div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:800px;'>
 <h2 style='margin-top:0;'>بخش قلب</h2>
@@ -1590,7 +1590,7 @@ allTags.push({ marker: tag_cardiologyy, baseSize: 12 });
 
 var tag_sinaa = L.marker(
     map.unproject([2492, 3837], map.getMaxZoom() - 1),
-    { icon: squareIcon(12) }
+    { icon: squareIcon(9) }
 ).addTo(map).bindPopup(`
 <div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
 <h2 style='margin-top:0;'>بخش سینا</h2>
@@ -1611,7 +1611,7 @@ allTags.push({ marker: tag_sinaa, baseSize: 12 });
 
 var tag_dialysiss = L.marker(
     map.unproject([5932, 5629], map.getMaxZoom() - 1),
-    { icon: squareIcon(12) }
+    { icon: squareIcon(9) }
 ).addTo(map).bindPopup(`
 <div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
 <h2 style='margin-top:0;'>بخش دیالیز</h2>
@@ -1647,8 +1647,8 @@ allTags.push({ marker: tag_dialysiss, baseSize: 12 });
 
 
 var tag_physiotherapyy = L.marker(
-    map.unproject([5008, 6728], map.getMaxZoom() - 1),
-    { icon: squareIcon(12) }
+    map.unproject([5617, 6705], map.getMaxZoom() - 1),
+    { icon: squareIcon(9) }
 ).addTo(map).bindPopup(`
 <div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
 <h2 style='margin-top:0;'>بخش فیزیوتراپی</h2>
@@ -1680,6 +1680,130 @@ var tag_physiotherapyy = L.marker(
 allTags.push({ marker: tag_physiotherapyy, baseSize: 12 });
 
 
+
+ var tag_laboratoryy = L.marker(
+    map.unproject([7880, 5997], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map).bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
+<h2 style='margin-top:0;'>آزمایشگاه</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>الکتروآنالایزر</td><td>2</td><td>-</td></tr>
+<tr><td>سانتریفیوژ</td><td>8</td><td>-</td></tr>
+<tr><td>بلادگاز</td><td>2</td><td>-</td></tr>
+<tr><td>فریزر و یخچال</td><td>7</td><td>-</td></tr>
+<tr><td>سدیمان ریدر</td><td>1</td><td>-</td></tr>
+<tr><td>مهتابی دوتایی بزرگ</td><td>44</td><td>-</td></tr>
+<tr><td>اتوآنالایزر</td><td>4</td><td>-</td></tr>
+<tr><td>سل کانتر</td><td>4</td><td>-</td></tr>
+<tr><td>دریچه هواکش</td><td>2</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>19</td><td>-</td></tr>
+<tr><td>الایزوریدر</td><td>1</td><td>-</td></tr>
+<tr><td>سیستم</td><td>14</td><td>-</td></tr>
+<tr><td>الکتروکلدمینانس</td><td>1</td><td>-</td></tr>
+<tr><td>تلویزیون</td><td>1</td><td>-</td></tr>
+<tr><td>فور</td><td>2</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>7</td><td>-</td></tr>
+<tr><td>بن ماری</td><td>3</td><td>-</td></tr>
+<tr><td>کولر گازی</td><td>1</td><td>-</td></tr>
+<tr><td>انکوباتور</td><td>2</td><td>-</td></tr>
+<tr><td>اتوکلاب</td><td>21</td><td>-</td></tr>
+<tr><td>یخچال</td><td>4</td><td>-</td></tr>
+<tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
+<tr><td>ساکسی درم</td><td>2</td><td>-</td></tr>
+<tr><td>پنکه</td><td>1</td><td>-</td></tr>
+<tr><td>آب مقطر گیری</td><td>2</td><td>-</td></tr>
+<tr><td>پنل سقفی</td><td>4</td><td>-</td></tr>
+</table>
+
+</div>
+`);
+
+allTags.push({ marker: tag_laboratoryy, baseSize: 12 });
+
+
+var tag_radiology_ctt = L.marker(
+    map.unproject([9116, 6149], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map).bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
+<h2 style='margin-top:0;'>رادیولوژی و سی‌تی‌اسکن</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>رادیولوژی دیجیتال</td><td>2</td><td>-</td></tr>
+<tr><td>مهتابی دوتایی بزرگ</td><td>25</td><td>-</td></tr>
+<tr><td>اسپلیت</td><td>6</td><td>-</td></tr>
+<tr><td>رادیولوژی آنالوگ</td><td>1</td><td>-</td></tr>
+<tr><td>دستگاه OPG</td><td>1</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>6</td><td>-</td></tr>
+<tr><td>سیستم </td><td>17</td><td>-</td></tr>
+<tr><td>الکتروشوک</td><td>2</td><td>-</td></tr>
+<tr><td>سی تی اسکن</td><td>1</td><td>-</td></tr>
+<tr><td>ساکشن جراحی</td><td>1</td><td>-</td></tr>
+<tr><td>دستگاه تک دندان</td><td>1</td><td>-</td></tr>
+<tr><td>پرینتر زیراکس</td><td>2</td><td>-</td></tr>
+<tr><td>پنل سقفی</td><td>16</td><td>-</td></tr>
+<tr><td>آمپلی‌فایر</td><td>2</td><td>-</td></tr>
+<tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
+<tr><td>ماکروفر</td><td>1</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>7</td><td>-</td></tr>
+<tr><td>آبسردکن</td><td>1</td><td>-</td></tr>
+<tr><td>دستگاه سونوگرافی</td><td>1</td><td>-</td></tr>
+<tr><td>پنکه</td><td>2</td><td>-</td></tr>
+<tr><td>مهتابی دوتایی کوچک</td><td>23</td><td>-</td></tr>
+</table>
+</div>
+`);
+
+allTags.push({ marker: tag_radiology_ctt, baseSize: 12 });
+
+var tag_pathologyy = L.marker(
+    map.unproject([10688, 9300], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map).bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
+<h2 style='margin-top:0;'>پاتولوژی</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>پنل سقفی</td><td>5</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>9</td><td>-</td></tr>
+<tr><td>یخچال</td><td>2</td><td>-</td></tr>
+<tr><td>هود پزشکی</td><td>1</td><td>-</td></tr>
+<tr><td>ترازو پزشکی</td><td>2</td><td>-</td></tr>
+<tr><td>فروزن ساکشن</td><td>1</td><td>-</td></tr>
+<tr><td>پارافین ذوب</td><td>1</td><td>-</td></tr>
+<tr><td>کلدپلیت</td><td>2</td><td>-</td></tr>
+<tr><td>بن ماری</td><td>1</td><td>-</td></tr>
+<tr><td>مهتابی دوتایی بزرگ</td><td>23</td><td>-</td></tr>
+<tr><td>سانتریفیوژ</td><td>2</td><td>-</td></tr>
+<tr><td>فور</td><td>1</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>1</td><td>-</td></tr>
+<tr><td>سیستم</td><td>1</td><td>-</td></tr>
+<tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
+<tr><td>ماکروفر</td><td>1</td><td>-</td></tr>
+</table>
+</div>
+`);
+
+allTags.push({ marker: tag_pathologyy, baseSize: 12 });
+   
+
 // ---------------- AUTO RESIZE ON ZOOM ----------------
 map.on("zoomend", function() {
     var z = map.getZoom();
@@ -1698,6 +1822,7 @@ map.on("click", function(e) {
 </script>
 </body>
 </html>
+
 
 
 
