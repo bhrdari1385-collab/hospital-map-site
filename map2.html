@@ -414,6 +414,33 @@ var tag_zayeman = L.marker(
 allTags.push({ marker: tag_zayeman, baseSize: 12 });
 
 
+// ---------------- TAG 14 ----------------
+var tag_a = L.marker(
+    map.unproject([1564, 5356], map.getMaxZoom() - 1),
+    { icon: squareIcon(4) }
+).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'>
+<h2 style='margin-top:0;'>مسئول بایگانی حسابداری</h2>
+<hr>
+<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
+
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+    
+</tr>
+
+<tr><td>روشنایی</td><td>-</td><td>-</td></tr>
+<tr><td>یخچال</td><td>1</td><td>-</td></tr>
+<tr><td>سیستم</td><td>2</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>2</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>1</td><td>-</td></tr>
+
+</table>
+</div>
+`);
+
+allTags.push({ marker: tag_a, baseSize: 12 });
 
 
 // ---------------- TAG 15 ----------------
@@ -1507,6 +1534,7 @@ map.on("click", function(e) {
 </script>
 </body>
 </html>
+
 
 
 
