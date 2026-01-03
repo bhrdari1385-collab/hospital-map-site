@@ -1518,6 +1518,168 @@ allTags.push({ marker: tag_special_clinicc, baseSize: 12 });
 
 
 
+ var tag_general_clinicc = L.marker(
+    map.unproject([6900, 9253], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map).bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:800px;'>
+<h2 style='margin-top:0;'>درمانگاه عمومی</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr><th>تجهیزات</th><th>تعداد</th><th>توان مصرفی (W)</th></tr>
+<tr><td>دریچه هواکش</td><td>22</td><td>-</td></tr>
+<tr><td>مهتابی دوتایی بزرگ</td><td>30</td><td>-</td></tr>
+<tr><td>سیستم</td><td>6</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>1</td><td>-</td></tr>
+<tr><td>پنکه</td><td>6</td><td>-</td></tr>
+<tr><td>دستگاه نوارعضله</td><td>1</td><td>-</td></tr>
+<tr><td>یخچال</td><td>1</td><td>-</td></tr>
+<tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
+<tr><td>بخاری برقی</td><td>1</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>12</td><td>-</td></tr>
+<tr><td>دستگاه کافوبات</td><td>1</td><td>-</td></tr>
+<tr><td>آب سرد کن</td><td>1</td><td>-</td></tr>
+<tr><td>تلویزیون</td><td>1</td><td>-</td></tr>
+</table>
+</div>
+`);
+
+allTags.push({ marker: tag_general_clinicc, baseSize: 12 });   
+
+
+
+
+    var tag_cardiologyy = L.marker(
+    map.unproject([6776, 2192], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map).bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:800px;'>
+<h2 style='margin-top:0;'>بخش قلب</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>الکتروشوک قلبی</td><td>1</td><td>180</td></tr>
+<tr><td>الکتروکاردیوگراف</td><td>2</td><td>57</td></tr>
+<tr><td>پمپ سرنگ و سرم</td><td>10</td><td>7.2</td></tr>
+<tr><td>ساکشن جراحی</td><td>1</td><td>220</td></tr>
+<tr><td>مانیتور علائم حیاتی</td><td>6</td><td>70</td></tr>
+<tr><td>پنل سقفی</td><td>45</td><td>-</td></tr>
+<tr><td>سیستم</td><td>5</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>3</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>26</td><td>-</td></tr>
+<tr><td>مهتابی دوتایی بزرگ</td><td>35</td><td>-</td></tr>
+<tr><td>یخچال</td><td>15</td><td>-</td></tr>
+<tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
+<tr><td>ماکروفر</td><td>1</td><td>-</td></tr>
+<tr><td>دریچه هواکش</td><td>24</td><td>-</td></tr>
+<tr><td>لامپ گرد سقفی</td><td>18</td><td>-</td></tr>
+<tr><td>تلویزیون</td><td>13</td><td>-</td></tr>
+<tr><td>آبسردکن</td><td>13</td><td>-</td></tr>
+</table>
+</div>
+`);
+
+allTags.push({ marker: tag_cardiologyy, baseSize: 12 });
+
+
+
+
+var tag_sinaa = L.marker(
+    map.unproject([2492, 3837], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map).bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
+<h2 style='margin-top:0;'>بخش سینا</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+
+</table>
+</div>
+`);
+
+allTags.push({ marker: tag_sinaa, baseSize: 12 });
+
+
+var tag_dialysiss = L.marker(
+    map.unproject([5932, 5629], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map).bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
+<h2 style='margin-top:0;'>بخش دیالیز</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>الکتروشوک قلبی</td><td>1</td><td>180</td></tr>
+<tr><td>پمپ تزریق سرنگ و سرم</td><td>1</td><td>7.2</td></tr>
+<tr><td>ساکشن جراحی</td><td>1</td><td>220</td></tr>
+<tr><td>الکتروکاردیوگراف</td><td>1</td><td>57</td></tr>
+<tr><td>مانیتور علائم حیاتی</td><td>1</td><td>70</td></tr>
+<tr><td>ونتیلاتور</td><td>1</td><td>800</td></tr>
+<tr><td>دستگاه دیالیز</td><td>10</td><td>1700</td></tr>
+<tr><td>مهتابی دوتایی بزرگ</td><td>21</td><td>72</td></tr>
+<tr><td>لامپ گرد سقفی</td><td>3</td><td>18</td></tr>
+<tr><td>هواکش</td><td>4</td><td>-</td></tr>
+<tr><td>فن‌کوئل</td><td>29</td><td>-</td></tr>
+<tr><td>یخچال</td><td>1</td><td>-</td></tr>
+<tr><td>سیستم کامپیوتر</td><td>1</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>1</td><td>-</td></tr>
+<tr><td>تلویزیون</td><td>2</td><td>-</td></tr>
+<tr><td>مایکروفر</td><td>1</td><td>-</td></tr>
+<tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
+</table>
+</div>
+`);
+
+allTags.push({ marker: tag_dialysiss, baseSize: 12 });
+
+
+var tag_physiotherapyy = L.marker(
+    map.unproject([5008, 6728], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map).bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:700px;'>
+<h2 style='margin-top:0;'>بخش فیزیوتراپی</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>چراغ IR</td><td>10</td><td>750</td></tr>
+<tr><td>دیاترمی</td><td>1</td><td>400</td></tr>
+<tr><td>ویبراتور</td><td>3</td><td>220</td></tr>
+<tr><td>لیزر پرتوان</td><td>1</td><td>57</td></tr>
+<tr><td>CPM</td><td>3</td><td>70</td></tr>
+<tr><td>TENS</td><td>1</td><td>800</td></tr>
+<tr><td>مهتابی دوتایی بزرگ</td><td>12</td><td>72</td></tr>
+<tr><td>مهتابی دوتایی کوچک</td><td>8</td><td>36</td></tr>
+<tr><td>لامپ گرد سقفی</td><td>3</td><td>18</td></tr>
+<tr><td>هواکش</td><td>7</td><td>-</td></tr>
+<tr><td>فن‌کوئل</td><td>10</td><td>-</td></tr>
+<tr><td>سیستم کامپیوتر</td><td>3</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>1</td><td>-</td></tr>
+<tr><td>آب‌سردکن</td><td>1</td><td>-</td></tr>
+</table>
+</div>
+`);
+
+allTags.push({ marker: tag_physiotherapyy, baseSize: 12 });
+
+
 // ---------------- AUTO RESIZE ON ZOOM ----------------
 map.on("zoomend", function() {
     var z = map.getZoom();
@@ -1536,6 +1698,7 @@ map.on("click", function(e) {
 </script>
 </body>
 </html>
+
 
 
 
