@@ -1468,6 +1468,53 @@ var tag_storage_support = L.marker(
 allTags.push({ marker: tag_storage_support, baseSize: 12 });
 
 
+var tag_special_clinic2 = L.marker(
+    map.unproject([17900, 1300], map.getMaxZoom() - 1),
+    { icon: squareIcon(12) }
+).addTo(map).bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:800px;'>
+<h2 style='margin-top:0;'>درمانگاه تخصصی</h2>
+<hr>
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان مصرفی (W)</th>
+</tr>
+<tr><td>تلویزیون</td><td>3</td><td>-</td></tr>
+<tr><td>مانیتور</td><td>18</td><td>-</td></tr>
+<tr><td>پنکه</td><td>8</td><td>-</td></tr>
+<tr><td>اره گچ‌بُری</td><td>1</td><td>-</td></tr>
+<tr><td>سیستم</td><td>26</td><td>-</td></tr>
+<tr><td>دریچه هواکش</td><td>90</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>30</td><td>-</td></tr>
+<tr><td>نگاتوسکوپ</td><td>9</td><td>-</td></tr>
+<tr><td>فنال مانیتورینگ</td><td>1</td><td>-</td></tr>
+<tr><td>چراغ سیار</td><td>4</td><td>-</td></tr>
+<tr><td> مهتابی دوتایی بزرگ</td><td>129</td><td>-</td></tr>
+<tr><td>دستگاه نوار قلب</td><td>2</td><td>-</td></tr>
+<tr><td>اسکنر فروشگاهی</td><td>1</td><td>-</td></tr>
+<tr><td>مانیتور علایم حیاتی</td><td>2</td><td>-</td></tr>
+<tr><td>الکتروشوک</td><td>1</td><td>-</td></tr>
+<tr><td>یخچال</td><td>4</td><td>-</td></tr>
+<tr><td>اسپلیت</td><td>2</td><td>-</td></tr>
+<tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
+<tr><td>لنزومتر</td><td>2</td><td>-</td></tr>
+<tr><td>اولتراسونیک</td><td>1</td><td>-</td></tr>
+<tr><td>آمالگاماتور</td><td>3</td><td>-</td></tr>
+<tr><td>ساکشن جراحی</td><td>4</td><td>-</td></tr>
+<tr><td>یونیت دندان‌پزشکی</td><td>3</td><td>-</td></tr>
+<tr><td>دستگاه جرم‌گیری</td><td>3</td><td>-</td></tr>
+<tr><td>اسلیت لامپ</td><td>1</td><td>-</td></tr>
+<tr><td>یاگ لیزر</td><td>1</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>3</td><td>-</td></tr>
+<tr><td>ادیومتری</td><td>2</td><td>-</td></tr>
+<tr><td>اتورفرکتومتر</td><td>2</td><td>-</td></tr>
+</table>
+</div>
+`);
+
+allTags.push({ marker: tag_special_clinic2, baseSize: 12 });
 
 
 
@@ -1489,4 +1536,5 @@ map.on("click", function(e) {
 </script>
 </body>
 </html>
+
 
