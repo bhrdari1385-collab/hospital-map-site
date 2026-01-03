@@ -1468,7 +1468,7 @@ var tag_storage_support = L.marker(
 allTags.push({ marker: tag_storage_support, baseSize: 12 });
 
 
-var tag_special_clinic2 = L.marker(
+var tag_special_clinicc = L.marker(
     map.unproject([4144, 9132], map.getMaxZoom() - 1),
     { icon: squareIcon(12) }
 ).addTo(map).bindPopup(`
@@ -1514,7 +1514,7 @@ var tag_special_clinic2 = L.marker(
 </div>
 `);
 
-allTags.push({ marker: tag_special_clinic2, baseSize: 12 });
+allTags.push({ marker: tag_special_clinicc, baseSize: 12 });
 
 
 
@@ -1536,6 +1536,7 @@ map.on("click", function(e) {
 </script>
 </body>
 </html>
+
 
 
 
