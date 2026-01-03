@@ -386,10 +386,10 @@ var tag_kakhdari = L.marker(
 var tag_salon1 = L.marker(
     map.unproject([8785, 4979], map.getMaxZoom() - 1),   
     { icon: squareIcon(8) }
-).addTo(map).bindPopup("<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'>
+).addTo(map).bindPopup(`
+<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'>
 <hr>
 <table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
 <tr>
     <th>تجهیزات</th>
     <th>تعداد</th>
@@ -981,9 +981,9 @@ var tag_salonj1 = L.marker(
     
 </tr>
 
-<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td>هواساز</td><td>2</td><td>-</td><td>-</td></tr>
-<tr><td>فنکوئل</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>روشنایی</td><td>-</td><td>-</td></tr>
+<tr><td>هواساز</td><td>2</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>1</td><td>-</td></tr>
 
 </table>
 </div>
@@ -1007,8 +1007,8 @@ var tag_molaghati = L.marker(
     
 </tr>
 
-<tr><td>روشنایی</td><td>-</td><td>-</td><td>\
-<tr><td>دریچه هواساز</td><td>3</td><td>-</td><td>\
+<tr><td>روشنایی</td><td>-</td><td>-</td></th>
+<tr><td>دریچه هواساز</td><td>3</td><td>-</td></th>
 
 </table>
 </div>
@@ -1534,6 +1534,7 @@ map.on("click", function(e) {
 </script>
 </body>
 </html>
+
 
 
 
