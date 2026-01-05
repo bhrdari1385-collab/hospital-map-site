@@ -85,34 +85,30 @@ allTags.push({ marker: tag_jarrahi1, baseSize: 12 });
 var tag_jarrahi2 = L.marker(
     map.unproject([6832, 2062], map.getMaxZoom() - 1),
     { icon: squareIcon(8) }
-).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'> 
-<h2 style='margin-top:0;'>بخش جراحی 2</h2> 
-<hr>   
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
-<tr> 
-    <th>تجهیزات</th> 
-    <th>تعداد</th> 
-    <th>توان مصرفی (W)</th> 
+).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'>\
+<h2 style='margin-top:0;'>بخش جراحی 2</h2>\
+<hr>\
+<table style='width:100%;text-align:right;'>\
+<tr>\
+    <th>تجهیزات</th>\
+    <th>تعداد</th>\
+    <th>توان مصرفی (kw)</th>\
     
-</tr> 
-<tr><td>مهتابی دوتایی کوچک</td><td>62</td><td>-</td></tr>
-<tr><td>مهتابی دوتایی بزرگ</td><td>7</td><td>-</td></tr>
-<tr><td>لامپ گرد سقفی</td><td>22</td><td>-</td></tr>
-<tr><td>پنل سقفی</td><td>3</td><td>-</td></tr>
-<tr><td>الکتروشوک</td><td>1</td><td>180</td></tr>
-<tr><td>الکتروکاردیوگراف</td><td>1</td><td>-</td></tr>
-<tr><td>ساکشن جراحی</td><td>1</td><td>220</td></tr>
-<tr><td>یخچال</td><td>15</td><td>-</td></tr>
-<tr><td>تلویزیون</td><td>13</td><td>-</td></tr>
-<tr><td>سیستم</td><td>4</td><td>-</td></tr>
-<tr><td>پرینتر</td><td>2</td><td>-</td></tr>
-<tr><td>پنکه</td><td>1</td><td>-</td></tr>
-<tr><td>تشک مواج</td><td>1</td><td>-</td></tr>
-<tr><td>هواکش</td><td>-</td><td>-</td></tr>
-<tr><td>دریچه هواساز</td><td>-</td><td>-</td></tr>
-<tr><td>فنکوئل</td><td>23</td><td>-</td></tr>
-</table>      
+</tr>\
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>\
+<tr><td>الکتروشوک</td><td>1</td><td>-</td><td>\
+<tr><td>الکتروکاردیوگراف</td><td>1</td><td>-</td><td>\
+<tr><td>ساکشن جراحی</td><td>1</td><td>-</td><td>\
+<tr><td>یخچال</td><td>15</td><td>-</td><td>\
+<tr><td>تلویزیون</td><td>13</td><td>-</td><td>\
+<tr><td>سیستم</td><td>4</td><td>-</td><td>\
+<tr><td>پرینتر</td><td>1</td><td>-</td><td>\
+<tr><td>پنکه</td><td>1</td><td>-</td><td>\
+<tr><td>تشک مواج</td><td>1</td><td>-</td><td>\
+<tr><td>هواکش</td><td>-</td><td>-</td><td>\
+<tr><td>دریچه هواساز</td><td>-</td><td>-</td><td>\
+<tr><td>فنکوئل</td><td>-</td><td>-</td><td>\
+</table>\
 </div>`);
 
 allTags.push({ marker: tag_jarrahi2, baseSize: 12 });
@@ -125,26 +121,24 @@ var tag_jarrahi3 = L.marker(
 ).addTo(map).bindPopup(`<div style="padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;">
   <h2 style="margin-top:0;">بخش جراحی 3</h2>
   <hr>
- <table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
+  <table style="width:100%;text-align:right;">
     <tr>
       <th>تجهیزات</th>
       <th>تعداد</th>
-      <th>(W)توان مصرفی</th>
+      <th>(kw) توان مصرفی</th>
       
     </tr>
-    <tr><td>پنل سقفی</td><td>100</td><td>55</td></tr>
-    <tr><td>الکتروشوک</td><td>1</td><td>-</td></tr>
-    <tr><td>الکتروکاردیوگراف</td><td>1</td><td>-</td></tr>
-    <tr><td>پمپ سرنگ و سرم </td><td>1</td><td>7.2</td></tr>
-    <tr><td>یخچال</td><td>13</td><td>-</td></tr>
-    <tr><td>تلویزیون</td><td>13</td><td>-</td></tr>
-    <tr><td>سیستم</td><td>4</td><td>-</td></tr>
-    <tr><td>پرینتر</td><td>3</td><td>-</td></tr>
-    <tr><td>دریچه هواساز</td><td>8</td><td>-</td></tr>
-    <tr><td>فنکوئل</td><td>16</td><td>-</td></tr>
-    <tr><td>هواکش</td><td>-</td><td>-</td></tr>
-    <tr><td>دریچه هواساز</td><td>6</td><td>-</td></tr>
+    <tr><td>روشنایی</td><td>-</td><td>-</td><td>\
+    <tr><td>الکتروشوک</td><td>1</td><td>-</td><td>\
+    <tr><td>الکتروکاردیوگراف</td><td>1</td><td>-</td><td>\
+    <tr><td>پمپ سرنگ</td><td>1</td><td>-</td><td>\
+    <tr><td>یخچال</td><td>13</td><td>-</td><td>\
+    <tr><td>تلویزیون</td><td>13</td><td>-</td><td>\
+    <tr><td>سیستم</td><td>4</td><td>-</td><td>\
+    <tr><td>پرینتر</td><td>1</td><td>-</td><td>\\
+    <tr><td>دریچه هواساز</td><td>8</td><td>-</td><td>\
+    <tr><td>فنکوئل</td><td>16</td><td>-</td><td>\
+    <tr><td>هواکش</td><td>-</td><td>-</td><td>\
   </table>
 </div>
 `);
@@ -156,42 +150,41 @@ allTags.push({ marker: tag_jarrahi3, baseSize: 12 });
 var tag_jarrahi4 = L.marker(
     map.unproject([12614, 2062], map.getMaxZoom() - 1),
     { icon: squareIcon(8) }
-).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'> 
-<h2 style='margin-top:0;'>بخش جراحی 4</h2> 
-<hr> 
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
-<tr> 
-    <th>تجهیزات</th> 
-    <th>تعداد</th>
-    <th>توان مصرفی (Wٌ)</th>
+).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'>\
+<h2 style='margin-top:0;'>بخش جراحی 4</h2>\
+<hr>\
+<table style='width:100%;text-align:right;'>\
+<tr>\
+    <th>تجهیزات</th>\
+    <th>تعداد</th>\
+    <th>توان مصرفی (kw)</th>\
     
-</tr>
-<tr><td>لامپ گرد سقفی</td><td>49</td><td>18</td></tr>
-<tr><td>پنل سقفی</td><td>58</td><td>55</td></tr>
-<tr><td>مانیتور علائم حیاتی</td><td>4</td><td>70</td></tr>
-<tr><td>مانیتور علائم حیاتی پرتابل</td><td>2</td><td>-</td></tr>
-<tr><td>یخچال دارویی</td><td>1</td><td>200</td></tr>
-<tr><td>ساکشن جراحی</td><td>2</td><td>220</td></tr>
-<tr><td> پمپ سرنگ و سرم</td><td>5</td><td>7.2</td></tr>
-<tr><td>الکتروشوک</td><td>1</td><td>-</td></tr>
-<tr><td>آب سرد کن</td><td>1</td><td>-</td></tr>
-<tr><td>دستگاه NST</td><td>4</td><td>-</td></tr>
-<tr><td>فنکوئل</td><td>6</td><td>-</td></tr>
-<tr><td>ونتیلاتور</td><td>1</td><td>800</td></tr>
-<tr><td>تخت برقی</td><td>1</td><td>-</td></tr>
-<tr><td>شیردوش برقی</td><td>3</td><td>-</td></tr>
-<tr><td>دستگاه ECG</td><td>1</td><td>-</td></tr>
-<tr><td> دریچه هواکش</td><td>3</td><td>-</td></tr>
-<tr><td>تلویزیون</td><td>15</td><td>-</td></tr>
-<tr><td>یخچال</td><td>18</td><td>-</td></tr>
-<tr><td>دریچه هواساز</td><td>6</td><td>-</td></tr>
-<tr><td>پرینتر</td><td>4</td><td>-</td></tr>
-<tr><td>ماکروفر</td><td>1</td><td>-</td></tr>
-<tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
-<tr><td>سیستم</td><td>6</td><td>-</td></tr>
-<tr><td>وارمر تابشی نوزاد</td><td>1</td><td>-</td></tr>
-</table>
+</tr>\
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>\
+<tr><td>مانیتور علائم حیاتی</td><td>4</td><td>-</td><td>\
+<tr><td>مانیتور علائم حیاتی پرتابل</td><td>2</td><td>-</td><td>\
+<tr><td>یخچال دارویی</td><td>1</td><td>-</td><td>\
+<tr><td>پمپ سرم</td><td>3</td><td>-</td><td>\
+<tr><td>ساکشن</td><td>2</td><td>-</td><td>\
+<tr><td>پمپ سرنگ</td><td>2</td><td>-</td><td>\
+<tr><td>الکتروشوک</td><td>1</td><td>-</td><td>\
+<tr><td>آب سرد کن</td><td>1</td><td>-</td><td>\
+<tr><td>دستگاه NST</td><td>4</td><td>-</td><td>\
+<tr><td>فن‌کوئل</td><td>6</td><td>-</td><td>\
+<tr><td>ونتیلاتور</td><td>1</td><td>-</td><td>\
+<tr><td>تخت برقی</td><td>1</td><td>-</td><td>\
+<tr><td>شیردوش برقی</td><td>2</td><td>-</td><td>\
+<tr><td>دستگاه ECG</td><td>1</td><td>-</td><td>\
+<tr><td>هواکش</td><td>3</td><td>-</td><td>\
+<tr><td>سیو</td><td>2</td><td>-</td><td>\
+<tr><td>یخچال</td><td>18</td><td>-</td><td>\
+<tr><td>دریچه هواساز</td><td>6</td><td>-</td><td>\
+<tr><td>پرینتر</td><td>3</td><td>-</td><td>\
+<tr><td>ماکروفر</td><td>1</td><td>-</td><td>\
+<tr><td>سماور برقی</td><td>1</td><td>-</td><td>\
+<tr><td>سیستم</td><td>6</td><td>-</td><td>\
+<tr><td>وارمر تابشی نوزاد</td><td>1</td><td>-</td><td>\
+</table>\
 </div>`);
 
 allTags.push({ marker: tag_jarrahi4, baseSize: 12 });
@@ -200,83 +193,83 @@ allTags.push({ marker: tag_jarrahi4, baseSize: 12 });
 var tag_CCU = L.marker(
     map.unproject([5376, 5639], map.getMaxZoom() - 1),
     { icon: squareIcon(8) }
-).addTo(map).bindPopup(`
-<div style="padding:20px;background:#24344d;color:white;border-radius:8px;max-width:650px;">
-<h2 style="margin-top:0;">بخش CCU</h2>
+).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:650px;'>
+<h2 style='margin-top:0;'>بخش CCU</h2>
 <hr>
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
+<table style='width:100%;text-align:right;'>
 <tr>
     <th>تجهیزات</th>
     <th>تعداد</th>
-    <th>توان مصرفی (W)</th>
+    <th>توان هر واحد (kw)</th>
+    <th>توان کل (kw)</th>
 </tr>
 
-<tr><td>مهتابی دوتایی بزرگ</td><td>19</td><td>-</td></tr>
-<tr><td>الکتروکاردیوگراف</td><td>2</td><td>-</td></tr>
-<tr><td>مانیتور علائم حیاتی</td><td>8</td><td>-</td></tr>
-<tr><td>مانومتر اکسیژن</td><td>7</td><td>-</td></tr>
-<tr><td>تخت برقی</td><td>7</td><td>-</td></tr>
-<tr><td>الکتروشوک</td><td>2</td><td>-</td></tr>
-<tr><td>اکوکاردیوگرام</td><td>1</td><td>-</td></tr>
-<tr><td>تشک مواج</td><td>3</td><td>-</td></tr>
-<tr><td>پمپ تزریق سرنگ و سرم</td><td>16</td><td>-</td></tr>
-<tr><td>دریچه هواساز</td><td>-</td><td>-</td></tr>
-<tr><td>ونتیلاتور</td><td>1</td><td>-</td></tr>
-<tr><td>ساکشن جراحی</td><td>7</td><td>-</td></tr>
-<tr><td>سیستم</td><td>2</td><td>-</td></tr>
-<tr><td>یخچال</td><td>3</td><td>-</td></tr>
-<tr><td>پنکه</td><td>1</td><td>-</td></tr>
-<tr><td>سماور</td><td>1</td><td>-</td></tr>
-<tr><td>فنکوئل</td><td>12</td><td>-</td></tr>
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>الکتروکاردیوگراف</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>مانیتور علائم حیاتی</td><td>8</td><td>-</td><td>-</td></tr>
+<tr><td>مانومتر اکسیژن</td><td>7</td><td>-</td><td>-</td></tr>
+<tr><td>تخت برقی</td><td>7</td><td>-</td><td>-</td></tr>
+<tr><td>الکتروشوک</td><td>2</td><td>-</td><td>-</td></tr>
+<tr><td>اکوکاردیوگرام</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>تشک مواج</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>پمپ سرنگ</td><td>7</td><td>-</td><td>-</td></tr>
+<tr><td>پمپ سرم</td><td>7</td><td>-</td><td>-</td></tr>
+<tr><td>ونتیلاتور</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>ساکشن جراحی</td><td>7</td><td>-</td><td>-</td></tr>
+<tr><td>سیستم</td><td>3</td><td>-</td><td>-</td></tr>
+<tr><td>یخچال</td><td>3</td><td>-</td><td>-</td></tr>
+<tr><td>پنکه</td><td>2</td><td>-</td><td>-</td></tr>
+<tr><td>سماور</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>12</td><td>-</td><td>-</td></tr>
+<tr><td>دریچه هواساز</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>هواکش</td><td>-</td><td>-</td><td>-</td></tr>
+
 </table>
 </div>
 `);
 
+allTags.push({ marker: tag_CCU, baseSize: 12 });
 // ---------------- TAG 6 ----------------
 var tag_ICU = L.marker(
     map.unproject([6141, 5639], map.getMaxZoom() - 1),
     { icon: squareIcon(8) }
-).addTo(map).bindPopup(`
-<div style="padding:20px;background:#24344d;color:white;border-radius:8px;max-width:650px;">
-  <h2 style="margin-top:0;">بخش ICU</h2>
-  <hr>
-  <table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
+).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:650px;'>
+<h2 style='margin-top:0;'>بخش ICU</h2>
+<hr>
+<table style='width:100%;text-align:right;'>
+<tr>
+    <th>تجهیزات</th>
+    <th>تعداد</th>
+    <th>توان هر واحد (kw)</th>
+    <th>توان کل (kw)</th>
+</tr>
 
-    <tr>
-      <th>تجهیزات</th>
-      <th>تعداد</th>
-      <th>توان مصرفی (W)</th>
-    </tr>
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>الکتروشوک</td><td>2</td><td>-</td><td>-</td></tr>
+<tr><td>الکتروکاردیوگراف</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>پمپ سرنگ</td><td>11</td><td>-</td><td>-</td></tr>
+<tr><td>پمپ سرم</td><td>7</td><td>-</td><td>-</td></tr>
+<tr><td>ساکشن جراحی</td><td>6</td><td>-</td><td>-</td></tr>
+<tr><td>ساکشن پرتابل</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>مانیتور علائم حیاتی</td><td>6</td><td>-</td><td>-</td></tr>
+<tr><td>مانیتور علائم حیاتی پرتابل</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>رادیولوژی پرتابل</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>تخت برقی</td><td>6</td><td>-</td><td>-</td></tr>
+<tr><td>تشک مواج</td><td>7</td><td>-</td><td>-</td></tr>
+<tr><td>سیستم</td><td>3</td><td>-</td><td>-</td></tr>
+<tr><td>مانیتور مرکزی</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>پمپ DVT</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>دیالیز</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>بخور سرد</td><td>2</td><td>-</td><td>-</td></tr>
+<tr><td>بخور گرم</td><td>2</td><td>-</td><td>-</td></tr>
+<tr><td>یخچال</td><td>2</td><td>-</td><td>-</td></tr>
+<tr><td>یخچال دارویی</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>پنکه</td><td>2</td><td>-</td><td>-</td></tr>
+<tr><td>سماور</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>9</td><td>-</td><td>-</td></tr>
+<tr><td>هواساز</td><td>-</td><td>-</td><td>-</td></tr>
 
-    <tr><td>مهتابی دوتایی بزرگ</td><td>6</td><td>-</td></tr>
-    <tr><td>پنل سقفی</td><td>21</td><td>-</td></tr>
-    <tr><td>الکتروشوک</td><td>2</td><td>-</td></tr>
-    <tr><td>الکتروکاردیوگراف</td><td>1</td><td>-</td></tr>
-    <tr><td>پمپ تزریق سرنگ و سرم</td><td>17</td><td>-</td></tr>
-    <tr><td>بای پپ</td><td>4</td><td>-</td></tr>
-    <tr><td>دستگاه ونتیلاتور</td><td>8</td><td>-</td></tr>
-    <tr><td>ساکشن جراحی</td><td>6</td><td>-</td></tr>
-    <tr><td>ساکشن پرتابل</td><td>1</td><td>-</td></tr>
-    <tr><td>مانیتور علائم حیاتی</td><td>7</td><td>-</td></tr>
-    <tr><td>مانیتور علائم حیاتی پرتابل</td><td>1</td><td>-</td></tr>
-    <tr><td>رادیولوژی پرتابل</td><td>1</td><td>-</td></tr>
-    <tr><td>تخت برقی</td><td>6</td><td>-</td></tr>
-    <tr><td>تشک مواج</td><td>7</td><td>-</td></tr>
-    <tr><td>سیستم</td><td>2</td><td>-</td></tr>
-    <tr><td>پرینتر</td><td>1</td><td>-</td></tr>
-    <tr><td>مانیتور مرکزی</td><td>1</td><td>-</td></tr>
-    <tr><td>پمپ DVT</td><td>1</td><td>-</td></tr>
-    <tr><td>دستگاه دیالیز</td><td>1</td><td>-</td></tr>
-    <tr><td>بخور سرد</td><td>2</td><td>-</td></tr>
-    <tr><td>بخور گرم</td><td>2</td><td>-</td></tr>
-    <tr><td>یخچال</td><td>2</td><td>-</td></tr>
-    <tr><td>یخچال دارویی</td><td>1</td><td>-</td></tr>
-    <tr><td>پنکه</td><td>1</td><td>-</td></tr>
-    <tr><td>سماور برقی</td><td>1</td><td>-</td></tr>
-    <tr><td>فنکوئل</td><td>9</td><td>-</td></tr>
-    <tr><td>هواساز</td><td>-</td><td>-</td></tr>
-  </table>
+</table>
 </div>
 `);
 
@@ -286,40 +279,7 @@ allTags.push({ marker: tag_ICU, baseSize: 12 });
 var tag_NICU = L.marker(
     map.unproject([11948, 6843], map.getMaxZoom() - 1),
     { icon: squareIcon(10) }
-).addTo(map).bindPopup(`
-<div style="padding:20px;background:#24344d;color:white;border-radius:8px;max-width:650px;">
-  <h2 style="margin-top:0;">بخش NICU</h2>
-  <hr>
- <table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
-    <tr>
-      <th>تجهیزات</th>
-      <th>تعداد</th>
-      <th>توان مصرفی (W)</th>
-    </tr>
-
-    <tr><td>پنل سقفی</td><td>23</td><td>-</td></tr>
-    <tr><td>لامپ گرد سقفی</td><td>30</td><td>-</td></tr>
-    <tr><td>انکوباتور نوزاد</td><td>23</td><td>440</td></tr>
-    <tr><td>مانیتور علائم حیاتی</td><td>26</td><td>70</td></tr>
-    <tr><td>فوتوتراپی</td><td>22</td><td>80</td></tr>
-    <tr><td>رادیولوژی پرتابل</td><td>1</td><td>72</td></tr>
-    <tr><td>دستگاه سونوگرافی</td><td>1</td><td>500</td></tr>
-    <tr><td>ونتیلاتور</td><td>7</td><td>800</td></tr>
-    <tr><td>الکتروشوک</td><td>1</td><td>180</td></tr>
-    <tr><td>پمپ تزریق سرنگ و سرم</td><td>23</td><td>7.2</td></tr>
-    <tr><td>وارمر تابشی نوزاد</td><td>6</td><td>650</td></tr>
-    <tr><td>تخت احیا نوزاد</td><td>5</td><td>1100</td></tr>
-    <tr><td>سیستم</td><td>-</td><td>-</td></tr>
-    <tr><td>یخچال</td><td>6</td><td>-</td></tr>
-    <tr><td>یخچال دارویی</td><td>1</td><td>-</td></tr>
-    <tr><td>اسپلیت</td><td>1</td><td>-</td></tr>
-    <tr><td>ماکروفر</td><td>2</td><td>-</td></tr>
-    <tr><td>فنکوئل</td><td>6</td><td>-</td></tr>
-    <tr><td>دریچه هواساز</td><td>15</td><td>-</td></tr>
-  </table>
-</div>
-`);
+).addTo(map).bindPopup("بخشNICU");
 
 allTags.push({ marker: tag_NICU, baseSize: 12 });
 
@@ -335,23 +295,23 @@ allTags.push({ marker: tag_konferans, baseSize: 12 });
 var tag_amozesh1 = L.marker(
     map.unproject([9080, 1492], map.getMaxZoom() - 1),
     { icon: squareIcon(7) }
-).addTo(map).bindPopup(`
-<div style="padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;">
-<h2 style="margin-top:0;">کلاس آموزش</h2>
-<hr>
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
+).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'>\
+<h2 style='margin-top:0;'>کلاس آموزش</h2>\
+<hr>\
+<table style='width:100%;text-align:right;'>\
+<tr>\
+    <th>تجهیزات</th>\
+    <th>تعداد</th>\
+    <th>توان هر واحد (kw)</th>\
+    <th>توان کل (kw)</th>\
+</tr>\
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>\
+<tr><td>کولر گازی</td><td>1</td><td>-</td><td>-</td></tr>\
+<tr><td>تلویزیون</td><td>1</td><td>-</td><td>-</td></tr>\
+</table>\
+</div>`);
 
-<tr>
-    <th>تجهیزات</th>
-    <th>تعداد</th>
-    <th>توان مصرفی (W)</th>
-</tr>
-<tr><td>مهتابی کوچک دوتایی</td><td>18</td><td>-</td></tr>
-<tr><td>کولر گازی</td><td>1</td><td>-</td></tr>
-<tr><td>تلویزیون</td><td>1</td><td>-</td></tr>
-</table>
-</div>
-`);
+allTags.push({ marker: tag_amozesh1, baseSize: 12 });
 
 // ---------------- TAG 10 ----------------
 var tag_amozesh2 = L.marker(
@@ -365,42 +325,41 @@ allTags.push({ marker: tag_amozesh2, baseSize: 12 });
 var tag_kakhdari = L.marker(
     map.unproject([6988, 4583], map.getMaxZoom() - 1),   
     { icon: squareIcon(5) }
-).addTo(map).bindPopup(`
-<div style="padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;">
-<h2 style="margin-top:0;">کاخداری</h2>
-<hr>
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
+).addTo(map).bindPopup("<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'>\
+<h2 style='margin-top:0;'>کاخداری</h2>\
+<hr>\
+<table style='width:100%;text-align:right;'>\
+<tr>\
+    <th>تجهیزات</th>\
+    <th>تعداد</th>\
+    <th>توان هر واحد (kw)</th>\
+    <th>توان کل (kw)</th>\
+</tr>\
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>\
+<tr><td>والمر آب گرم</td><td>1</td><td>-</td><td>-</td></tr>\
+</table>\
+</div>");
 
-<tr>
-    <th>تجهیزات</th>
-    <th>تعداد</th>
-    <th>توان مصرفی (W)</th>
-</tr>
-<tr><td>لامپ کوچک</td><td>1</td><td>-</td></tr>
-<tr><td>والمر آب گرم</td><td>1</td><td>-</td></tr>
-</table>
-</div>
-`);
+allTags.push({ marker: tag_kakhdari, baseSize: 12 });
 
 // ------------- TAG 12 -------------
 var tag_salon1 = L.marker(
     map.unproject([8785, 4979], map.getMaxZoom() - 1),   
     { icon: squareIcon(8) }
-).addTo(map).bindPopup(`
-<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'>
-<hr>
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-<tr>
-    <th>تجهیزات</th>
-    <th>تعداد</th>
-    <th>توان هر واحد (kw)</th>
-    <th>توان کل (kw)</th>
-</tr>
-<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>
-<tr><td>دریچه هواساز</td><td>7</td><td>-</td><td>-</td></tr>
-<tr><td>آب سرد کن</td><td>2</td><td>-</td><td>-</td></tr>
-<tr><td>فن‌کوئل</td><td>3</td><td>-</td><td>-</td></tr>
-</table>
+).addTo(map).bindPopup("<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'>\
+<hr>\
+<table style='width:100%;text-align:right;'>\
+<tr>\
+    <th>تجهیزات</th>\
+    <th>تعداد</th>\
+    <th>توان هر واحد (kw)</th>\
+    <th>توان کل (kw)</th>\
+</tr>\
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>\
+<tr><td>دریچه هواساز</td><td>7</td><td>-</td><td>-</td></tr>\
+<tr><td>آب سرد کن</td><td>2</td><td>-</td><td>-</td></tr>\
+<tr><td>فن‌کوئل</td><td>3</td><td>-</td><td>-</td></tr>\
+</table>\
 </div>");
 
 allTags.push({ marker: tag_salon1, baseSize: 12 });
@@ -421,20 +380,19 @@ var tag_a = L.marker(
 ).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'>
 <h2 style='margin-top:0;'>مسئول بایگانی حسابداری</h2>
 <hr>
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
+<table style='width:100%;text-align:right;'>
 <tr>
     <th>تجهیزات</th>
     <th>تعداد</th>
-    <th>توان مصرفی (W)</th>
-    
+    <th>توان هر واحد (kw)</th>
+    <th>توان کل (kw)</th>
 </tr>
 
-<tr><td>روشنایی</td><td>-</td><td>-</td></tr>
-<tr><td>یخچال</td><td>1</td><td>-</td></tr>
-<tr><td>سیستم</td><td>2</td><td>-</td></tr>
-<tr><td>پرینتر</td><td>2</td><td>-</td></tr>
-<tr><td>فنکوئل</td><td>1</td><td>-</td></tr>
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>یخچال</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>سیستم</td><td>2</td><td>-</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>2</td><td>-</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>1</td><td>-</td><td>-</td></tr>
 
 </table>
 </div>
@@ -450,20 +408,19 @@ var tag_b = L.marker(
 ).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'>
 <h2 style='margin-top:0;'>معاون حسابداری</h2>
 <hr>
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
+<table style='width:100%;text-align:right;'>
 <tr>
     <th>تجهیزات</th>
     <th>تعداد</th>
-    <th>توان مصرفی (W)</th>
-    
+    <th>توان هر واحد (kw)</th>
+    <th>توان کل (kw)</th>
 </tr>
 
-<tr><td>روشنایی</td><td>-</td><td>-</td></tr>
-<tr><td>سیستم</td><td>3</td><td>-</td></tr>
-<tr><td>اسکنر</td><td>1</td><td>-</td></tr>
-<tr><td>پرینتر</td><td>3</td><td>-</td></tr>
-<tr><td>فنکوئل</td><td>2</td><td>-</td></tr>
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>سیستم</td><td>3</td><td>-</td><td>-</td></tr>
+<tr><td>اسکنر</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>3</td><td>-</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>2</td><td>-</td><td>-</td></tr>
 
 </table>
 </div>
@@ -479,19 +436,18 @@ var tag_c= L.marker(
 ).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'>
 <h2 style='margin-top:0;'>کارشناس درآمد</h2>
 <hr>
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
+<table style='width:100%;text-align:right;'>
 <tr>
     <th>تجهیزات</th>
     <th>تعداد</th>
-    <th>توان مصرفی (W)</th>
+    <th>توان هر واحد (kw)</th>
     <th>توان کل (kw)</th>
 </tr>
 
-<tr><td>روشنایی</td><td>-</td><td>-</td></tr>
-<tr><td>سیستم</td><td>3</td><td>-</td></tr>
-<tr><td>پرینتر</td><td>2</td><td>-</td></tr>
-<tr><td>فنکوئل</td><td>1</td><td>-</td></tr>
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>سیستم</td><td>3</td><td>-</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>2</td><td>-</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>1</td><td>-</td><td>-</td></tr>
 
 </table>
 </div>
@@ -507,20 +463,19 @@ var tag_d = L.marker(
 ).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'>
 <h2 style='margin-top:0;'>رئیس حسابداری</h2>
 <hr>
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
+<table style='width:100%;text-align:right;'>
 <tr>
     <th>تجهیزات</th>
     <th>تعداد</th>
-    <th>توان مصرفی (W)</th>
-    
+    <th>توان هر واحد (kw)</th>
+    <th>توان کل (kw)</th>
 </tr>
 
-<tr><td>روشنایی</td><td>-</td><td>-</td></tr>
-<tr><td>سیستم</td><td>1</td><td>-</td></tr>
-<tr><td>پرینتر</td><td>1</td><td>-</td></tr>
-<tr><td>پنکه</td><td>1</td><td>-</td></tr>
-<tr><td>فنکوئل</td><td>1</td><td>-</td></tr>
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>سیستم</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>پنکه</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>1</td><td>-</td><td>-</td></tr>
 
 </table>
 </div>
@@ -535,21 +490,20 @@ var tag_18 = L.marker(
 ).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:550px;'>
 <h2 style='margin-top:0;'>حقوق و دستمزد</h2>
 <hr>
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
+<table style='width:100%;text-align:right;'>
 <tr>
     <th>تجهیزات</th>
     <th>تعداد</th>
-    <th>توان مصرفی (W)</th>
-   
+    <th>توان هر واحد (kw)</th>
+    <th>توان کل (kw)</th>
 </tr>
 
-<tr><td>روشنایی</td><td>-</td><td>-</td></tr>
-<tr><td>سیستم</td><td>3</td><td>-</td></tr>
-<tr><td>پرینتر</td><td>3</td><td>-</td></tr>
-<tr><td>اسکنر</td><td>1</td><td>-</td></tr>
-<tr><td>پنکه</td><td>1</td><td>-</td></tr>
-<tr><td>فنکوئل</td><td>1</td><td>-</td></tr>
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>سیستم</td><td>3</td><td>-</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>3</td><td>-</td><td>-</td></tr>
+<tr><td>اسکنر</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>پنکه</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>1</td><td>-</td><td>-</td></tr>
 
 </table>
 </div>
@@ -564,17 +518,16 @@ var tag_19 = L.marker(
 ).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:450px;'>
 <h2 style='margin-top:0;'>ترخیص سرپایی</h2>
 <hr>
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
+<table style='width:100%;text-align:right;'>
 <tr>
     <th>تجهیزات</th>
     <th>تعداد</th>
-    <th>توان مصرفی (W)</th>
+    <th>توان مصرفی (kw)</th>
     
 </tr>
 
-<tr><td>روشنایی</td><td>-</td><td>-</td></tr>
-<tr><td>فنکوئل</td><td>1</td><td>-</td></tr>
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>
+<tr><td>فنکوئل</td><td>1</td><td>-</td><td>
 
 </table>
 </div>
@@ -589,20 +542,19 @@ var tag_20 = L.marker(
 ).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:550px;'>
 <h2 style='margin-top:0;'>تدارکات اداری</h2>
 <hr>
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
+<table style='width:100%;text-align:right;'>
 <tr>
     <th>تجهیزات</th>
     <th>تعداد</th>
-    <th>توان مصرفی (W)</th>
-    
+    <th>توان هر واحد (kw)</th>
+    <th>توان کل (kw)</th>
 </tr>
 
-<tr><td>روشنایی</td><td>-</td><td>-</td></tr>
-<tr><td>سیستم</td><td>4</td><td>-</td></tr>
-<tr><td>کولر گازی</td><td>1</td><td>-</td></tr>
-<tr><td>فنکوئل</td><td>1</td><td>-</td></tr>
-<tr><td>یخچال</td><td>1</td><td>-</td></tr>
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>سیستم</td><td>4</td><td>-</td><td>-</td></tr>
+<tr><td>کولر گازی</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>یخچال</td><td>1</td><td>-</td><td>-</td></tr>
 
 </table>
 </div>
@@ -617,19 +569,18 @@ var tag_21 = L.marker(
 ).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'>
 <h2 style='margin-top:0;'>کارشناس کنترل عفونت</h2>
 <hr>
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
+<table style='width:100%;text-align:right;'>
 <tr>
     <th>تجهیزات</th>
     <th>تعداد</th>
-    <th>توان مصرفی (W)</th>
-    
+    <th>توان هر واحد (kw)</th>
+    <th>توان کل (kw)</th>
 </tr>
 
-<tr><td>روشنایی</td><td>-</td><td>-</td></tr>
-<tr><td>سیستم</td><td>1</td><td>-</td></tr>
-<tr><td>پرینتر</td><td>1</td><td>-</td></tr>
-<tr><td>فنکوئل</td><td>1</td><td>-</td></tr>
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>سیستم</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>1</td><td>-</td><td>-</td></tr>
 
 </table>
 </div>
@@ -644,19 +595,18 @@ var tag_22 = L.marker(
 ).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:520px;'>
 <h2 style='margin-top:0;'> تدارکات پزشکی</h2>
 <hr>
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
+<table style='width:100%;text-align:right;'>
 <tr>
     <th>تجهیزات</th>
     <th>تعداد</th>
-    <th>توان مصرفی (W)</th>
-    
+    <th>توان هر واحد (kw)</th>
+    <th>توان کل (kw)</th>
 </tr>
 
-<tr><td>روشنایی</td><td>-</td><td>-</td></tr>
-<tr><td>سیستم</td><td>2</td><td>-</td></tr>
-<tr><td>پرینتر و فکس</td><td>1</td><td>-</td></tr>
-<tr><td>فنکوئل</td><td>1</td><td>-</td></tr>
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>سیستم</td><td>2</td><td>-</td><td>-</td></tr>
+<tr><td>پرینتر و فکس</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>1</td><td>-</td><td>-</td></tr>
 
 </table>
 </div>
@@ -671,19 +621,18 @@ var tag_23 = L.marker(
 ).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:520px;'>
 <h2 style='margin-top:0;'>اتاق پزشکان</h2>
 <hr>
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
+<table style='width:100%;text-align:right;'>
 <tr>
     <th>تجهیزات</th>
     <th>تعداد</th>
-    <th>توان مصرفی (W)</th>
-    
+    <th>توان هر واحد (kw)</th>
+    <th>توان کل (kw)</th>
 </tr>
 
-<tr><td>روشنایی</td><td>-</td><td>-</td></tr>
-<tr><td>سیستم</td><td>3</td><td>-</td></tr>
-<tr><td>پرینتر</td><td>1</td><td>-</td></tr>
-<tr><td>فنکوئل</td><td>1</td><td>-</td></tr>
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>سیستم</td><td>3</td><td>-</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>1</td><td>-</td><td>-</td></tr>
 
 </table>
 </div>
@@ -698,19 +647,18 @@ var tag_24 = L.marker(
 ).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:520px;'>
 <h2 style='margin-top:0;'>کارشناس بهداشت محیط و بهداشت حرفه ای</h2>
 <hr>
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
+<table style='width:100%;text-align:right;'>
 <tr>
     <th>تجهیزات</th>
     <th>تعداد</th>
-    <th>توان مصرفی (W)</th>
-    
+    <th>توان هر واحد (kw)</th>
+    <th>توان کل (kw)</th>
 </tr>
 
-<tr><td>روشنایی</td><td>-</td><td>-</td></tr>
-<tr><td>سیستم</td><td>2</td><td>-</td></tr>
-<tr><td>پرینتر</td><td>1</td><td>-</td></tr>
-<tr><td>فنکوئل</td><td>1</td><td>-</td></tr>
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>سیستم</td><td>2</td><td>-</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>1</td><td>-</td><td>-</td></tr>
 
 </table>
 </div>
@@ -725,20 +673,19 @@ var tag_25 = L.marker(
 ).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:520px;'>
 <h2 style='margin-top:0;'>آبدارخانه</h2>
 <hr>
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
+<table style='width:100%;text-align:right;'>
 <tr>
     <th>تجهیزات</th>
     <th>تعداد</th>
-    <th>توان مصرفی (W)</th>
-    
+    <th>توان هر واحد (kw)</th>
+    <th>توان کل (kw)</th>
 </tr>
 
-<tr><td>روشنایی</td><td>-</td><td>-</td></tr>
-<tr><td>یخچال</td><td>1</td><td>-</td></tr>
-<tr><td>آب سرد کن</td><td>1</td><td>-</td></tr>
-<tr><td>سماور</td><td>2</td><td>-</td></tr>
-<tr><td>فنکوئل</td><td>1</td><td>-</td></tr>
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>یخچال</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>آب سرد کن</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>سماور</td><td>2</td><td>-</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>1</td><td>-</td><td>-</td></tr>
 
 </table>
 </div>
@@ -753,19 +700,18 @@ var tag_26 = L.marker(
 ).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:520px;'>
 <h2 style='margin-top:0;'>کارشناس آمار و اطلاعات</h2>
 <hr>
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
+<table style='width:100%;text-align:right;'>
 <tr>
     <th>تجهیزات</th>
     <th>تعداد</th>
-    <th>توان مصرفی (W)</th>
-    
+    <th>توان هر واحد (kw)</th>
+    <th>توان کل (kw)</th>
 </tr>
 
-<tr><td>روشنایی</td><td>-</td><td>-</td></tr>
-<tr><td>سیستم</td><td>2</td><td>-</td></tr>
-<tr><td>پرینتر</td><td>1</td><td>-</td></tr>
-<tr><td>فنکوئل</td><td>1</td><td>-</td></tr>
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>سیستم</td><td>2</td><td>-</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>1</td><td>-</td><td>-</td></tr>
 
 </table>
 </div>
@@ -780,20 +726,19 @@ var tag_27 = L.marker(
 ).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:620px;'>
 <h2 style='margin-top:0;'>مسئول خدمات عمومی و مهندسی ساختمان</h2>
 <hr>
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
+<table style='width:100%;text-align:right;'>
 <tr>
     <th>تجهیزات</th>
     <th>تعداد</th>
-    <th>توان مصرفی (W)</th>
-    
+    <th>توان هر واحد (kw)</th>
+    <th>توان کل (kw)</th>
 </tr>
 
-<tr><td>روشنایی</td><td>-</td><td>-</td></tr>
-<tr><td>سیستم</td><td>2</td><td>-</td></tr>
-<tr><td>پرینتر</td><td>1</td><td>-</td></tr>
-<tr><td>اسکنر</td><td>1</td><td>-</td></tr>
-<tr><td>فنکوئل</td><td>1</td><td>-</td></tr>
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>سیستم</td><td>2</td><td>-</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>اسکنر</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>1</td><td>-</td><td>-</td></tr>
 
 </table>
 </div>
@@ -808,18 +753,17 @@ var tag_28 = L.marker(
 ).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:520px;'>
 <h2 style='margin-top:0;'>رئیس امور اداری</h2>
 <hr>
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
+<table style='width:100%;text-align:right;'>
 <tr>
     <th>تجهیزات</th>
     <th>تعداد</th>
-    <th>توان مصرفی (W)</th>
-    
+    <th>توان هر واحد (kw)</th>
+    <th>توان کل (kw)</th>
 </tr>
 
-<tr><td>روشنایی</td><td>-</td><td>-</td></tr>
-<tr><td>سیستم</td><td>1</td><td>-</td></tr>
-<tr><td>پرینتر</td><td>1</td><td>-</td></tr>
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>سیستم</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>1</td><td>-</td><td>-</td></tr>
 
 </table>
 </div>
@@ -834,20 +778,19 @@ var tag_29 = L.marker(
 ).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:600px;'>
 <h2 style='margin-top:0;'>امور اداری</h2>
 <hr>
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
+<table style='width:100%;text-align:right;'>
 <tr>
     <th>تجهیزات</th>
     <th>تعداد</th>
-    <th>توان مصرفی (W)</th>
-   
+    <th>توان هر واحد (kw)</th>
+    <th>توان کل (kw)</th>
 </tr>
 
-<tr><td>روشنایی</td><td>-</td><td>-</td></tr>
-<tr><td>سیستم</td><td>5</td><td>-</td></tr>
-<tr><td>پرینتر</td><td>5</td><td>-</td></tr>
-<tr><td>اسکنر</td><td>1</td><td>-</td></tr>
-<tr><td>فنکوئل</td><td>3</td><td>-</td></tr>
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>سیستم</td><td>5</td><td>-</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>5</td><td>-</td><td>-</td></tr>
+<tr><td>اسکنر</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>3</td><td>-</td><td>-</td></tr>
 
 </table>
 </div>
@@ -862,21 +805,20 @@ var tag_30 = L.marker(
 ).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:600px;'>
 <h2 style='margin-top:0;'>ریاست بیمارستان</h2>
 <hr>
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
+<table style='width:100%;text-align:right;'>
 <tr>
     <th>تجهیزات</th>
     <th>تعداد</th>
-    <th>توان مصرفی (W)</th>
-    
+    <th>توان هر واحد (kw)</th>
+    <th>توان کل (kw)</th>
 </tr>
 
-<tr><td>روشنایی</td><td>-</td><td>-</td></tr>
-<tr><td>سیستم</td><td>1</td><td>-</td></tr>
-<tr><td>پرینتر</td><td>1</td><td>-</td></tr>
-<tr><td>یخچال</td><td>1</td><td>-</td></tr>
-<tr><td>پنکه</td><td>1</td><td>-</td></tr>
-<tr><td>فنکوئل</td><td>2</td><td>-</td></tr>
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>سیستم</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>یخچال</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>پنکه</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>2</td><td>-</td><td>-</td></tr>
 
 </table>
 </div>
@@ -891,18 +833,17 @@ var tag_31 = L.marker(
 ).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:520px;'>
 <h2 style='margin-top:0;'>منشی رئیس</h2>
 <hr>
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
+<table style='width:100%;text-align:right;'>
 <tr>
     <th>تجهیزات</th>
     <th>تعداد</th>
-    <th>توان مصرفی (W)</th>
-    
+    <th>توان هر واحد (kw)</th>
+    <th>توان کل (kw)</th>
 </tr>
 
-<tr><td>روشنایی</td><td>-</td><td>-</td></tr>
-<tr><td>سیستم</td><td>1</td><td>-</td></tr>
-<tr><td>پرینتر</td><td>1</td><td>-</td></tr>
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>سیستم</td><td>1</td><td>-</td><td>-</td></tr>
+<tr><td>پرینتر</td><td>1</td><td>-</td><td>-</td></tr>
 
 </table>
 </div>
@@ -948,17 +889,16 @@ var tag_salon2 = L.marker(
     { icon: squareIcon(8) }
 ).addTo(map).bindPopup(`
 <div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'>
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
+<table style='width:100%;text-align:right;'>
 <tr>
     <th>تجهیزات</th>
     <th>تعداد</th>
-    <th>توان مصرفی (W)</th>
-   
+    <th>توان هر واحد (kw)</th>
+    <th>توان کل (kw)</th>
 </tr>
 
-<tr><td>روشنایی</td><td>-</td><td>-</td></tr>
-<tr><td>دریچه هواساز</td><td>4</td><td>-</td></tr>
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>دریچه هواساز</td><td>4</td><td>-</td><td>-</td></tr>
 
 </table>
 </div>
@@ -972,18 +912,17 @@ var tag_salonj1 = L.marker(
     map.unproject([3934, 4888], map.getMaxZoom() - 1),
     { icon: squareIcon(8) }
 ).addTo(map).bindPopup(`<div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'>
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
+<table style='width:100%;text-align:right;'>
 <tr>
     <th>تجهیزات</th>
     <th>تعداد</th>
-    <th>توان مصرفی (W)</th>
-    
+    <th>توان هر واحد (kw)</th>
+    <th>توان کل (kw)</th>
 </tr>
 
-<tr><td>روشنایی</td><td>-</td><td>-</td></tr>
-<tr><td>هواساز</td><td>2</td><td>-</td></tr>
-<tr><td>فنکوئل</td><td>1</td><td>-</td></tr>
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>هواساز</td><td>2</td><td>-</td><td>-</td></tr>
+<tr><td>فنکوئل</td><td>1</td><td>-</td><td>-</td></tr>
 
 </table>
 </div>
@@ -998,17 +937,16 @@ var tag_molaghati = L.marker(
 <div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'>
 <h2 style='margin-top:0;'>راهرو ملاقاتی</h2>
 <hr>
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
+<table style='width:100%;text-align:right;'>
 <tr>
     <th>تجهیزات</th>
     <th>تعداد</th>
-    <th>توان مصرفی (W)</th>
+    <th>توان مصرفی (kw)</th>
     
 </tr>
 
-<tr><td>روشنایی</td><td>-</td><td>-</td></tr>
-<tr><td>دریچه هواساز</td><td>3</td><td>-</td></tr>
+<tr><td>روشنایی</td><td>-</td><td>-</td><td>\
+<tr><td>دریچه هواساز</td><td>3</td><td>-</td><td>\
 
 </table>
 </div>
@@ -1031,8 +969,7 @@ var tag_edari = L.marker(
 <div style='padding:20px;background:#24344d;color:white;border-radius:8px;max-width:500px;'>
 <h2 style='margin-top:0;'>اداری</h2>
 <hr>
-<table style="width:100%;text-align:right;border-collapse:collapse;" border="1" cellpadding="4">
-
+<table style='width:100%;text-align:right;' border="1" cellspacing="0" cellpadding="4">
 <tr>
     <th>تجهیزات</th>
     <th>تعداد</th>
@@ -1534,19 +1471,6 @@ map.on("click", function(e) {
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
