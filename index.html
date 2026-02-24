@@ -1,57 +1,163 @@
 <!DOCTYPE html>
-<html>
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="utf-8" />
-    <title>Hospital Floor Selector</title>
+    <title>بیمارستان تامین اجتماعی شهدای کارگر یزد</title>
 
-    <!-- Favicon سایت -->
-    <link rel="icon" type="image/jpeg" href="myicon.jpg">
+    <!-- فونت فارسی حرفه‌ای -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
 
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            background: #f5f5f5;
-            font-family: tahoma;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: linear-gradient(135deg, #0066ff, #00c6ff);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ====== منو ====== */
+        nav {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        nav .menu a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav .menu a:hover {
+            color: #ffe600;
+        }
+
+        /* ====== باکس اصلی ====== */
+        .container {
+            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
         }
+
         .box {
             background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
             text-align: center;
+            width: 400px;
+            animation: fadeIn 1s ease;
         }
+
+        .box img {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
         .box h1 {
-            margin-bottom: 25px;
+            font-size: 22px;
+            margin-bottom: 30px;
+            color: #333;
         }
+
         .btn {
-            padding: 15px 30px;
-            font-size: 18px;
-            cursor: pointer;
-            margin: 10px;
-            border-radius: 10px;
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            margin: 10px 0;
+            border-radius: 12px;
             border: none;
-            background: #0077ff;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #0077ff, #00c6ff);
             color: white;
         }
-        .btn:hover {
-            background: #005fcc;
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* ====== فوتر ====== */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: rgba(0,0,0,0.1);
+            color: white;
+            font-size: 14px;
+        }
+
+        /* انیمیشن */
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        /* ریسپانسیو */
+        @media (max-width: 500px) {
+            .box {
+                width: 90%;
+                padding: 30px;
+            }
         }
     </style>
 </head>
+
 <body>
 
-<div class="box">
-    <h1>بیمارستان تامین اجتماعی شهدای کارگر یزد</h1>
-    
-    <!-- دکمه‌های رفتن به صفحات نقشه -->
-    <button class="btn" onclick="window.location.href='map1.html'">طبقه همکف</button>
-    <button class="btn" onclick="window.location.href='map2.html'">طبقه اول</button>
+<!-- منو -->
+<nav>
+    <div><strong>بیمارستان شهدای کارگر یزد</strong></div>
+    <div class="menu">
+        <a href="#">صفحه اصلی</a>
+        <a href="#">راهنمای بیماران</a>
+        <a href="#">تماس با ما</a>
+    </div>
+</nav>
+
+<!-- محتوای اصلی -->
+<div class="container">
+    <div class="box">
+        <!-- لوگو بیمارستان -->
+        <img src="logo.png" alt="لوگو بیمارستان">
+
+        <h1>انتخاب طبقه مورد نظر</h1>
+
+        <button class="btn btn-primary" onclick="window.location.href='map1.html'">
+            طبقه همکف
+        </button>
+
+        <button class="btn btn-primary" onclick="window.location.href='map2.html'">
+            طبقه اول
+        </button>
+    </div>
 </div>
+
+<footer>
+    © 2026 بیمارستان تامین اجتماعی شهدای کارگر یزد - تمامی حقوق محفوظ است
+</footer>
 
 </body>
 </html>
