@@ -7,6 +7,7 @@
 <link rel="icon" href="logo.png" type="image/png">
 <style>
 * {margin:0; padding:0; box-sizing:border-box;}
+
 body {
     font-family: 'Vazirmatn', sans-serif;
     min-height:100vh;
@@ -46,8 +47,6 @@ header {
     display:flex;
     align-items:center;
     gap:15px;
-    flex:1;
-    justify-content:center;
 }
 
 .logo-box {
@@ -202,37 +201,37 @@ footer {
 </footer>
 
 <script>
-// Adjusted particles for mobile + desktop to behave identically
-const particleCount = window.innerWidth < 600 ? 40 : 70;
+// Floating particles identical on all devices
+const totalParticles = 70; // ثابت برای همه
 let particles = [];
-for(let i=0;i<particleCount;i++){
+for(let i=0;i<totalParticles;i++){
     const p = document.createElement('div');
-    p.className = 'particle';
-    const size = Math.random()*6 + 4;
-    p.style.width = size+'px';
-    p.style.height = size+'px';
-    p.style.left = Math.random()*window.innerWidth+'px';
-    p.style.top = Math.random()*window.innerHeight+'px';
-    p.style.background = `rgba(255,255,255,${Math.random()*0.4+0.2})`;
+    p.className='particle';
+    const size = Math.random()*6+4;
+    p.style.width=size+'px';
+    p.style.height=size+'px';
+    p.style.left=Math.random()*window.innerWidth+'px';
+    p.style.top=Math.random()*window.innerHeight+'px';
+    p.style.background=`rgba(255,255,255,${Math.random()*0.4+0.2})`;
     document.body.appendChild(p);
     particles.push({
-        el: p,
-        x: parseFloat(p.style.left),
-        y: parseFloat(p.style.top),
-        dx: (Math.random()-0.5)*0.3,
-        dy: (Math.random()-0.5)*0.3
+        el:p,
+        x:parseFloat(p.style.left),
+        y:parseFloat(p.style.top),
+        dx:(Math.random()-0.5)*0.3,
+        dy:(Math.random()-0.5)*0.3
     });
 }
 
 function animateParticles(){
     particles.forEach(p=>{
-        p.x += p.dx;
-        p.y += p.dy;
+        p.x+=p.dx;
+        p.y+=p.dy;
         if(p.x>window.innerWidth) p.x=0;
         if(p.x<0) p.x=window.innerWidth;
         if(p.y>window.innerHeight) p.y=0;
         if(p.y<0) p.y=window.innerHeight;
-        p.el.style.transform = `translate(${p.x}px,${p.y}px)`;
+        p.el.style.transform=`translate(${p.x}px,${p.y}px)`;
     });
     requestAnimationFrame(animateParticles);
 }
@@ -241,4 +240,3 @@ animateParticles();
 
 </body>
 </html>
-
