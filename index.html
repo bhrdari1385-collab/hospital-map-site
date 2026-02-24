@@ -46,11 +46,12 @@ header {
     padding:8px;
     border-radius:20px;
     backdrop-filter: blur(15px);
-    transition: transform 0.3s;
+    transition: transform 0.4s, box-shadow 0.4s;
 }
 
 .logo-box:hover {
-    transform: scale(1.05) rotate(-3deg);
+    transform: scale(1.08) rotate(-3deg);
+    box-shadow: 0 0 20px rgba(255,255,255,0.8);
 }
 
 .logo-box img {
@@ -70,11 +71,12 @@ nav a {
     margin:0 15px;
     font-weight:600;
     color:#fff;
-    transition:0.3s;
+    transition:0.3s, text-shadow 0.3s;
 }
 
 nav a:hover {
     color:#ffe600;
+    text-shadow: 0 0 10px #ffe600;
 }
 
 /* ===== MAIN ===== */
@@ -115,14 +117,15 @@ nav a:hover {
     font-weight:700;
     font-size:17px;
     cursor:pointer;
-    transition:0.4s;
+    transition:0.4s, box-shadow 0.4s;
     background: linear-gradient(135deg, #00c6ff, #0077ff);
     box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    color:#fff;
 }
 
 .btn:hover {
-    transform: translateY(-6px) scale(1.03);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 0 25px 5px rgba(0,198,255,0.7), 0 0 40px 10px rgba(0,119,255,0.5);
 }
 
 /* ===== FOOTER ===== */
@@ -187,6 +190,7 @@ footer {
 
 </body>
 </html>
+
 
 
 
