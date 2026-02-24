@@ -9,52 +9,52 @@
 
 <style>
 * {margin:0; padding:0; box-sizing:border-box;}
-body { font-family:'Vazirmatn', sans-serif; min-height:100vh; display:flex; flex-direction:column; overflow:hidden; position:relative; transition: background 1s, color 1s; }
+body { font-family:'Vazirmatn', sans-serif; min-height:100vh; display:flex; flex-direction:column; overflow:hidden; position:relative; transition: background 1s, color 1s; touch-action: none; }
 
-/* LIGHT / DARK THEMES */
+/* THEMES */
 body.light { color:#000; background: linear-gradient(270deg,#a0c4ff,#0077ff,#00c6ff,#8ecae6); }
 body.dark { color:#fff; background: linear-gradient(270deg,#1e3c72,#2a5298,#00c6ff,#0077ff); }
 
-/* PARTICLES */
+/* PARTICLES & TRAIL */
 .particle, .trail { position:absolute; border-radius:50%; pointer-events:none; transition: background 0.5s; }
 .particle { animation: floatParticle linear infinite; }
-.trail { transition: transform 0.1s linear; }
+.trail { transition: transform 0.05s linear; }
 
 /* HEADER */
 header { display:flex; justify-content:space-between; align-items:center; padding:15px 50px; background: rgba(255,255,255,0.15); backdrop-filter: blur(15px); border-radius:0 0 25px 25px; box-shadow:0 8px 30px rgba(0,0,0,0.35); z-index:2; position:relative; }
 .logo-section { display:flex; align-items:center; gap:15px; animation: fadeInLeft 1s ease; }
-.logo-box { background: rgba(255,255,255,0.3); padding:8px; border-radius:20px; backdrop-filter: blur(15px); transition: transform 0.3s, box-shadow 0.3s; animation: pulseGlow 2.5s infinite alternate; }
-.logo-box:hover { transform: scale(1.15) rotate(-3deg); box-shadow:0 0 70px rgba(0,198,255,0.95),0 0 90px rgba(0,119,255,0.8); }
-.logo-box img { width:70px; height:auto; }
-.hospital-title { font-weight:700; font-size:20px; text-shadow:0 2px 5px rgba(0,0,0,0.6); }
+.logo-box { background: rgba(255,255,255,0.3); padding:12px; border-radius:25px; backdrop-filter: blur(15px); transition: transform 0.3s, box-shadow 0.3s; animation: pulseGlow 2.5s infinite alternate; }
+.logo-box:hover, .logo-box.touch { transform: scale(1.15) rotate(-3deg); box-shadow:0 0 70px rgba(0,198,255,0.95),0 0 90px rgba(0,119,255,0.8); }
+.logo-box img { width:80px; height:auto; }
+.hospital-title { font-weight:700; font-size:22px; text-shadow:0 2px 5px rgba(0,0,0,0.6); }
 
-nav a { text-decoration:none; margin:0 15px; font-weight:600; transition:0.3s, text-shadow 0.3s; }
+nav a { text-decoration:none; margin:0 15px; font-weight:600; transition:0.3s, text-shadow 0.3s; font-size:18px; }
 body.light nav a { color:#0077ff; }
 body.dark nav a { color:#fff; }
 nav a:hover { color:#ffe600; text-shadow:0 0 15px #ffe600; }
 
 /* MAIN */
 .container { flex:1; display:flex; justify-content:center; align-items:center; padding:50px 20px; position:relative; z-index:2; }
-.glass-box { background: rgba(255,255,255,0.1); backdrop-filter: blur(25px); border-radius:30px; padding:60px 50px; text-align:center; width:420px; box-shadow:0 25px 60px rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.25); animation: fadeIn 1.2s ease; position:relative; overflow:hidden; transition: box-shadow 0.5s; }
-.glass-box:hover { box-shadow:0 0 80px 15px rgba(0,198,255,0.9),0 0 120px 20px rgba(0,119,255,0.7); }
+.glass-box { background: rgba(255,255,255,0.1); backdrop-filter: blur(25px); border-radius:35px; padding:70px 60px; text-align:center; width:500px; box-shadow:0 25px 60px rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.25); animation: fadeIn 1.2s ease; position:relative; overflow:hidden; transition: box-shadow 0.5s; }
+.glass-box:hover, .glass-box.touch { box-shadow:0 0 100px 20px rgba(0,198,255,0.95),0 0 140px 30px rgba(0,119,255,0.7); }
+
 .glass-box::after { content:''; position:absolute; top:-50%; left:-50%; width:200%; height:200%; background: radial-gradient(circle, rgba(0,198,255,0.2), transparent 70%); animation: waveMove 4s linear infinite; pointer-events:none; }
-@keyframes waveMove { 0%{transform: rotate(0deg);} 100%{transform: rotate(360deg);} }
 
-.glass-box h1 { margin-bottom:40px; font-size:24px; text-shadow:0 2px 10px rgba(0,0,0,0.5); }
+.glass-box h1 { margin-bottom:50px; font-size:26px; text-shadow:0 2px 10px rgba(0,0,0,0.5); }
 
-.btn { display:block; width:100%; padding:18px; margin:15px 0; border-radius:25px; border:none; font-weight:700; font-size:17px; cursor:pointer; transition:0.3s, box-shadow 0.3s, transform 0.3s; background: linear-gradient(135deg,#00c6ff,#0077ff); box-shadow:0 8px 25px rgba(0,0,0,0.3); color:#fff; animation: glowPulse 2s infinite alternate; }
-.btn:hover { transform: translateY(-8px) scale(1.12); box-shadow:0 0 80px 15px rgba(0,198,255,0.95),0 0 100px 20px rgba(0,119,255,0.8); }
+.btn { display:block; width:100%; padding:22px; margin:20px 0; border-radius:30px; border:none; font-weight:700; font-size:20px; cursor:pointer; transition:0.3s, box-shadow 0.3s, transform 0.3s; background: linear-gradient(135deg,#00c6ff,#0077ff); box-shadow:0 10px 35px rgba(0,0,0,0.4); color:#fff; animation: glowPulse 2s infinite alternate; }
+.btn:hover, .btn.touch { transform: translateY(-10px) scale(1.15); box-shadow:0 0 100px 20px rgba(0,198,255,0.95),0 0 120px 25px rgba(0,119,255,0.8); }
 
 /* FOOTER */
 footer { text-align:center; padding:15px; font-size:14px; background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); z-index:2; position:relative; }
 
-/* ANIMATIONS */
 @keyframes fadeIn { from{opacity:0; transform:translateY(30px);} to{opacity:1; transform:translateY(0);} }
 @keyframes fadeInLeft { from{opacity:0; transform:translateX(-50px);} to{opacity:1; transform:translateX(0);} }
-@keyframes pulseGlow { 0%{box-shadow:0 0 15px rgba(0,198,255,0.5);} 50%{box-shadow:0 0 35px rgba(0,198,255,0.8);} 100%{box-shadow:0 0 15px rgba(0,198,255,0.5);} }
+@keyframes pulseGlow { 0%{box-shadow:0 0 20px rgba(0,198,255,0.5);} 50%{box-shadow:0 0 40px rgba(0,198,255,0.8);} 100%{box-shadow:0 0 20px rgba(0,198,255,0.5);} }
 @keyframes glowPulse { 0%{box-shadow:0 0 15px rgba(0,198,255,0.5);} 50%{box-shadow:0 0 35px rgba(0,198,255,0.8);} 100%{box-shadow:0 0 15px rgba(0,198,255,0.5);} }
+@keyframes waveMove { 0%{transform: rotate(0deg);} 100%{transform: rotate(360deg);} }
 
-@media(max-width:500px){ header {flex-direction:column; gap:15px; text-align:center; padding:15px 20px;} .glass-box {width:90%; padding:40px 25px;} }
+@media(max-width:700px){ .glass-box {width:90%; padding:50px 30px;} .btn{font-size:18px; padding:18px;} nav a{font-size:16px;} }
 </style>
 </head>
 
@@ -85,21 +85,22 @@ footer { text-align:center; padding:15px; font-size:14px; background: rgba(255,2
 </footer>
 
 <script>
-// Sound hover
+// Sound hover/touch
 const hoverSound = new Audio('https://www.soundjay.com/button/beep-07.mp3');
 document.querySelectorAll('.btn').forEach(btn=>{
     btn.addEventListener('mouseenter', ()=>{ hoverSound.currentTime=0; hoverSound.play(); });
+    btn.addEventListener('touchstart', ()=>{ hoverSound.currentTime=0; hoverSound.play(); btn.classList.add('touch'); setTimeout(()=>btn.classList.remove('touch'),200); });
 });
+
+// Touch interaction on glass-box
+const glassBox=document.querySelector('.glass-box');
+glassBox.addEventListener('touchstart', ()=>{ glassBox.classList.add('touch'); setTimeout(()=>glassBox.classList.remove('touch'),300); });
 
 // Particles
 for(let i=0;i<60;i++){
-    let p=document.createElement('div');
-    p.className='particle';
-    let size=Math.random()*10+4;
-    p.style.width=size+'px';
-    p.style.height=size+'px';
-    p.style.left=Math.random()*100+'%';
-    p.style.top=Math.random()*100+'%';
+    let p=document.createElement('div'); p.className='particle'; let size=Math.random()*12+5;
+    p.style.width=size+'px'; p.style.height=size+'px';
+    p.style.left=Math.random()*100+'%'; p.style.top=Math.random()*100+'%';
     p.style.background=`rgba(${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.random()*0.5+0.2})`;
     p.style.animationDuration=(10+Math.random()*20)+'s';
     p.style.animationDelay=Math.random()*5+'s';
@@ -107,37 +108,22 @@ for(let i=0;i<60;i++){
 }
 
 // Trail particles
-let trailParticles=[];
-for(let i=0;i<30;i++){
-    let t=document.createElement('div');
-    t.className='trail';
-    let size=Math.random()*6+4;
-    t.style.width=size+'px';
-    t.style.height=size+'px';
-    t.style.background='rgba(0,198,255,0.7)';
-    document.body.appendChild(t);
-    trailParticles.push(t);
-}
-document.addEventListener('mousemove', e=>{
-    trailParticles.forEach((t,i)=>{
-        setTimeout(()=>{ t.style.transform=`translate(${e.clientX + (Math.random()*20-10)}px, ${e.clientY + (Math.random()*20-10)}px)` }, i*20);
-    });
-});
+let trailParticles=[]; for(let i=0;i<30;i++){ let t=document.createElement('div'); t.className='trail'; let size=Math.random()*6+4;
+t.style.width=size+'px'; t.style.height=size+'px'; t.style.background='rgba(0,198,255,0.7)'; document.body.appendChild(t); trailParticles.push(t); }
+
+document.addEventListener('mousemove', e=>{ trailParticles.forEach((t,i)=>{ setTimeout(()=>{ t.style.transform=`translate(${e.clientX + (Math.random()*20-10)}px, ${e.clientY + (Math.random()*20-10)}px)` }, i*20); }); });
+document.addEventListener('touchmove', e=>{ const touch=e.touches[0]; trailParticles.forEach((t,i)=>{ setTimeout(()=>{ t.style.transform=`translate(${touch.clientX + (Math.random()*20-10)}px, ${touch.clientY + (Math.random()*20-10)}px)` }, i*20); }); });
 
 // Light/Dark toggle
-function toggleTheme(){
-    document.body.classList.toggle('dark');
-    document.body.classList.toggle('light');
-    trailParticles.forEach(t=>{
-        t.style.background=document.body.classList.contains('dark')?'rgba(0,198,255,0.7)':'rgba(0,100,255,0.7)';
-    });
-}
+function toggleTheme(){ document.body.classList.toggle('dark'); document.body.classList.toggle('light');
+trailParticles.forEach(t=>{ t.style.background=document.body.classList.contains('dark')?'rgba(0,198,255,0.7)':'rgba(0,100,255,0.7)'; }); }
 </script>
 
-<button style="position:fixed;bottom:20px;left:20px;padding:10px 15px;border:none;border-radius:10px;background:#0077ff;color:white;z-index:999;cursor:pointer;font-weight:600;" onclick="toggleTheme()">Toggle Day/Night</button>
+<button style="position:fixed;bottom:20px;left:20px;padding:12px 18px;border:none;border-radius:10px;background:#0077ff;color:white;z-index:999;cursor:pointer;font-weight:600;font-size:16px;" onclick="toggleTheme()">Toggle Day/Night</button>
 
 </body>
 </html>
+
 
 
 
