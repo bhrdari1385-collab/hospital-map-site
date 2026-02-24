@@ -7,7 +7,6 @@
     <!-- فونت فارسی حرفه‌ای -->
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
 
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="logo.png">
 
     <style>
@@ -19,36 +18,59 @@
 
         body {
             font-family: 'Vazirmatn', sans-serif;
-            background: linear-gradient(135deg, #0066ff, #00c6ff);
-            height: 100vh;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
-        /* ====== منو ====== */
-        nav {
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
+        /* ===== HEADER ===== */
+        header {
+            background: white;
             padding: 15px 50px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            color: white;
+            justify-content: space-between;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
 
-        nav .menu a {
-            color: white;
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-box {
+            background: white;
+            padding: 8px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .logo-box img {
+            width: 70px;
+            height: auto;
+        }
+
+        .hospital-title {
+            font-weight: 700;
+            font-size: 18px;
+            color: #1e3c72;
+        }
+
+        nav a {
             text-decoration: none;
             margin: 0 15px;
+            color: #1e3c72;
             font-weight: 600;
             transition: 0.3s;
         }
 
-        nav .menu a:hover {
-            color: #ffe600;
+        nav a:hover {
+            color: #2a5298;
         }
 
-        /* ====== باکس اصلی ====== */
+        /* ===== MAIN ===== */
         .container {
             flex: 1;
             display: flex;
@@ -58,32 +80,27 @@
 
         .box {
             background: white;
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            padding: 60px 50px;
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
             text-align: center;
-            width: 400px;
-            animation: fadeIn 1s ease;
-        }
-
-        .box img {
-            width: 100px;
-            margin-bottom: 20px;
+            width: 420px;
+            animation: fadeIn 0.8s ease;
         }
 
         .box h1 {
-            font-size: 22px;
-            margin-bottom: 30px;
+            font-size: 20px;
+            margin-bottom: 35px;
             color: #333;
         }
 
         .btn {
             display: block;
             width: 100%;
-            padding: 15px;
+            padding: 16px;
             font-size: 16px;
-            margin: 10px 0;
-            border-radius: 12px;
+            margin: 12px 0;
+            border-radius: 14px;
             border: none;
             cursor: pointer;
             font-weight: 600;
@@ -91,35 +108,38 @@
         }
 
         .btn-primary {
-            background: linear-gradient(45deg, #0077ff, #00c6ff);
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
             color: white;
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.2);
         }
 
-        /* ====== فوتر ====== */
         footer {
             text-align: center;
             padding: 15px;
-            background: rgba(0,0,0,0.1);
+            background: rgba(255,255,255,0.1);
             color: white;
             font-size: 14px;
         }
 
-        /* انیمیشن */
         @keyframes fadeIn {
             from {opacity: 0; transform: translateY(20px);}
             to {opacity: 1; transform: translateY(0);}
         }
 
-        /* ریسپانسیو */
-        @media (max-width: 500px) {
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
             .box {
                 width: 90%;
-                padding: 30px;
+                padding: 40px 25px;
             }
         }
     </style>
@@ -127,23 +147,26 @@
 
 <body>
 
-<!-- منو -->
-<nav>
-    <div><strong>بیمارستان شهدای کارگر یزد</strong></div>
-    <div class="menu">
+<header>
+    <div class="logo-section">
+        <div class="logo-box">
+            <img src="logo.png" alt="لوگو سازمان تامین اجتماعی">
+        </div>
+        <div class="hospital-title">
+            بیمارستان تامین اجتماعی شهدای کارگر یزد
+        </div>
+    </div>
+
+    <nav>
         <a href="#">صفحه اصلی</a>
         <a href="#">راهنمای بیماران</a>
         <a href="#">تماس با ما</a>
-    </div>
-</nav>
+    </nav>
+</header>
 
-<!-- محتوای اصلی -->
 <div class="container">
     <div class="box">
-        <!-- لوگو بیمارستان -->
-        <img src="logo.png" alt="لوگو بیمارستان">
-
-        <h1>انتخاب طبقه مورد نظر</h1>
+        <h1>لطفاً طبقه مورد نظر را انتخاب کنید</h1>
 
         <button class="btn btn-primary" onclick="window.location.href='map1.html'">
             طبقه همکف
