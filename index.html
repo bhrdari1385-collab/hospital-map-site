@@ -9,27 +9,34 @@
 
 <style>
 * {margin:0; padding:0; box-sizing:border-box;}
-
 body {
-    font-family: 'Vazirmatn', sans-serif;
+    font-family:'Vazirmatn', sans-serif;
     min-height:100vh;
     display:flex;
     flex-direction:column;
-    color:#fff;
     overflow:hidden;
     position:relative;
-    background: linear-gradient(270deg, #1e3c72, #2a5298, #00c6ff, #0077ff);
-    background-size: 800% 800%;
-    animation: gradientBG 25s ease infinite;
+    transition: background 1s, color 1s;
 }
 
-/* ===== PARTICLES & TRAIL ===== */
+/* ===== LIGHT / DARK THEMES ===== */
+body.light {
+    color:#000;
+    background: linear-gradient(270deg,#a0c4ff,#0077ff,#00c6ff,#8ecae6);
+}
+
+body.dark {
+    color:#fff;
+    background: linear-gradient(270deg,#1e3c72,#2a5298,#00c6ff,#0077ff);
+}
+
+/* ===== PARTICLES ===== */
 .particle, .trail {
     position:absolute;
     border-radius:50%;
     pointer-events:none;
+    transition: background 0.5s;
 }
-
 .particle { animation: floatParticle linear infinite; }
 .trail { transition: transform 0.1s linear; }
 
@@ -47,12 +54,7 @@ header {
     position:relative;
 }
 
-.logo-section {
-    display:flex;
-    align-items:center;
-    gap:15px;
-    animation: fadeInLeft 1s ease;
-}
+.logo-section { display:flex; align-items:center; gap:15px; animation: fadeInLeft 1s ease; }
 
 .logo-box {
     background: rgba(255,255,255,0.3);
@@ -65,26 +67,20 @@ header {
 
 .logo-box:hover {
     transform: scale(1.12) rotate(-3deg);
-    box-shadow: 0 0 50px rgba(0,198,255,0.9), 0 0 70px rgba(0,119,255,0.7);
+    box-shadow: 0 0 50px rgba(0,198,255,0.9),0 0 70px rgba(0,119,255,0.7);
 }
 
 .logo-box img { width:70px; height:auto; }
-
-.hospital-title {
-    font-weight:700;
-    font-size:20px;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.6);
-    color:#fff;
-}
+.hospital-title { font-weight:700; font-size:20px; text-shadow: 0 2px 5px rgba(0,0,0,0.6); }
 
 nav a {
     text-decoration:none;
     margin:0 15px;
     font-weight:600;
-    color:#fff;
     transition:0.3s, text-shadow 0.3s;
 }
-
+body.light nav a { color:#0077ff; }
+body.dark nav a { color:#fff; }
 nav a:hover { color:#ffe600; text-shadow:0 0 15px #ffe600; }
 
 /* ===== MAIN ===== */
@@ -114,7 +110,6 @@ nav a:hover { color:#ffe600; text-shadow:0 0 15px #ffe600; }
     margin-bottom:40px;
     font-size:24px;
     text-shadow:0 2px 10px rgba(0,0,0,0.5);
-    color:#fff;
 }
 
 .btn {
@@ -133,11 +128,7 @@ nav a:hover { color:#ffe600; text-shadow:0 0 15px #ffe600; }
     color:#fff;
     animation: glowPulse 2s infinite alternate;
 }
-
-.btn:hover {
-    transform: translateY(-6px) scale(1.1);
-    box-shadow:0 0 60px 12px rgba(0,198,255,0.9),0 0 80px 20px rgba(0,119,255,0.7);
-}
+.btn:hover { transform: translateY(-6px) scale(1.1); box-shadow:0 0 60px 12px rgba(0,198,255,0.9),0 0 80px 15px rgba(0,119,255,0.7); }
 
 /* ===== FOOTER ===== */
 footer {
@@ -164,7 +155,7 @@ footer {
 </style>
 </head>
 
-<body>
+<body class="dark">
 
 <header>
 <div class="logo-section">
@@ -190,9 +181,9 @@ footer {
 © 2026 بیمارستان تامین اجتماعی شهدای کارگر یزد - تمامی حقوق محفوظ است
 </footer>
 
-<!-- ===== PARTICLES + TRAIL SCRIPT ===== -->
+<!-- ===== PARTICLES + TRAIL + TOGGLE SCRIPT ===== -->
 <script>
-// ذرات شناور پس‌زمینه
+// ذرات شناور
 for(let i=0;i<60;i++){
     let p=document.createElement('div');
     p.className='particle';
@@ -207,7 +198,7 @@ for(let i=0;i<60;i++){
     document.body.appendChild(p);
 }
 
-// Trail نورانی دنبال موس
+// Trail نورانی
 let trailParticles=[];
 for(let i=0;i<30;i++){
     let t=document.createElement('div');
@@ -215,20 +206,34 @@ for(let i=0;i<30;i++){
     let size=Math.random()*6+4;
     t.style.width=size+'px';
     t.style.height=size+'px';
-    t.style.background=`rgba(0,198,255,0.7)`;
+    t.style.background='rgba(0,198,255,0.7)';
     document.body.appendChild(t);
     trailParticles.push(t);
 }
-
 document.addEventListener('mousemove', e=>{
     trailParticles.forEach((t,i)=>{
         setTimeout(()=>{ t.style.transform=`translate(${e.clientX + (Math.random()*20-10)}px, ${e.clientY + (Math.random()*20-10)}px)` }, i*20);
     });
 });
+
+// ===== LIGHT/DARK TOGGLE =====
+function toggleTheme() {
+    document.body.classList.toggle('dark');
+    document.body.classList.toggle('light');
+
+    // update trail color
+    trailParticles.forEach(t=>{
+        t.style.background=document.body.classList.contains('dark') ? 'rgba(0,198,255,0.7)' : 'rgba(0,100,255,0.7)';
+    });
+}
 </script>
+
+<!-- ===== TOGGLE BUTTON ===== -->
+<button style="position:fixed;bottom:20px;left:20px;padding:10px 15px;border:none;border-radius:10px;background:#0077ff;color:white;z-index:999;cursor:pointer;font-weight:600;" onclick="toggleTheme()">Toggle Day/Night</button>
 
 </body>
 </html>
+
 
 
 
