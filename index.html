@@ -3,10 +3,8 @@
 <head>
 <meta charset="utf-8">
 <title>بیمارستان تامین اجتماعی شهدای کارگر یزد</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="icon" href="logo.png" type="image/png">
-
 <style>
 * {margin:0; padding:0; box-sizing:border-box;}
 body {
@@ -15,11 +13,11 @@ body {
     display:flex;
     flex-direction:column;
     color:#fff;
-    overflow-x:hidden;
+    overflow:hidden;
     position:relative;
     background: linear-gradient(270deg, #1e3c72, #2a5298, #00c6ff, #0077ff);
     background-size: 800% 800%;
-    animation: gradientBG 20s ease infinite;
+    animation: gradientBG 25s ease infinite;
 }
 
 /* PARTICLES */
@@ -28,7 +26,6 @@ body {
     border-radius:50%;
     pointer-events:none;
     opacity:0.7;
-    background: rgba(255,255,255,0.3);
 }
 
 /* ===== HEADER ===== */
@@ -36,49 +33,59 @@ header {
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:15px 50px;
+    padding:15px 40px;
     background: rgba(255,255,255,0.15);
     backdrop-filter: blur(15px);
     border-radius: 0 0 25px 25px;
     box-shadow: 0 8px 30px rgba(0,0,0,0.2);
     z-index:2;
+    flex-wrap:wrap;
 }
 
 .logo-section {
     display:flex;
     align-items:center;
     gap:15px;
+    flex:1;
+    justify-content:center;
 }
 
 .logo-box {
     background: rgba(255,255,255,0.3);
-    padding:8px;
-    border-radius:20px;
+    padding:10px;
+    border-radius:25px;
     backdrop-filter: blur(15px);
     transition: transform 0.4s, box-shadow 0.4s;
     animation: pulseGlow 3s infinite alternate;
 }
 
 .logo-box:hover {
-    transform: scale(1.08) rotate(-3deg);
-    box-shadow: 0 0 25px rgba(255,255,255,0.9);
+    transform: scale(1.1) rotate(-3deg);
+    box-shadow: 0 0 35px rgba(255,255,255,0.9);
 }
 
 .logo-box img {
-    width:70px;
+    width:80px;
     height:auto;
 }
 
 .hospital-title {
     font-weight:700;
-    font-size:20px;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    font-size:22px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.6);
     color:#fff;
+}
+
+nav {
+    display:flex;
+    align-items:center;
+    gap:20px;
+    justify-content:center;
+    flex-wrap:wrap;
 }
 
 nav a {
     text-decoration:none;
-    margin:0 15px;
     font-weight:600;
     color:#fff;
     transition:0.3s, text-shadow 0.3s;
@@ -86,7 +93,7 @@ nav a {
 
 nav a:hover {
     color:#ffe600;
-    text-shadow: 0 0 10px #ffe600;
+    text-shadow: 0 0 12px #ffe600;
 }
 
 /* ===== MAIN ===== */
@@ -103,18 +110,18 @@ nav a:hover {
 .glass-box {
     background: rgba(255,255,255,0.1);
     backdrop-filter: blur(25px);
-    border-radius:30px;
+    border-radius:35px;
     padding:60px 50px;
     text-align:center;
     width:420px;
     box-shadow: 0 25px 60px rgba(0,0,0,0.35);
-    border: 1px solid rgba(255,255,255,0.25);
+    border:1px solid rgba(255,255,255,0.25);
     animation: fadeIn 1.2s ease;
     position:relative;
 }
 
 .glass-box:hover {
-    box-shadow: 0 0 80px rgba(255,255,255,0.3),0 0 120px rgba(0,198,255,0.2);
+    box-shadow: 0 0 90px rgba(255,255,255,0.3),0 0 130px rgba(0,198,255,0.2);
 }
 
 .glass-box h1 {
@@ -142,7 +149,7 @@ nav a:hover {
 
 .btn:hover {
     transform: translateY(-6px) scale(1.05);
-    box-shadow: 0 0 30px 5px rgba(0,198,255,0.7), 0 0 50px 10px rgba(0,119,255,0.5);
+    box-shadow: 0 0 35px 6px rgba(0,198,255,0.7), 0 0 60px 12px rgba(0,119,255,0.5);
 }
 
 /* ===== FOOTER ===== */
@@ -155,27 +162,9 @@ footer {
 }
 
 /* ===== ANIMATIONS ===== */
-@keyframes fadeIn {
-    from {opacity:0; transform: translateY(30px);}
-    to {opacity:1; transform: translateY(0);}
-}
-
-@keyframes fadeInLeft {
-    from {opacity:0; transform: translateX(-50px);}
-    to {opacity:1; transform: translateX(0);}
-}
-
-@keyframes gradientBG {
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
-}
-
-@keyframes pulseGlow {
-    0%{box-shadow:0 0 15px rgba(255,255,255,0.5);}
-    50%{box-shadow:0 0 35px rgba(255,255,255,0.8);}
-    100%{box-shadow:0 0 15px rgba(255,255,255,0.5);}
-}
+@keyframes fadeIn { from {opacity:0; transform: translateY(30px);} to {opacity:1; transform: translateY(0);} }
+@keyframes gradientBG { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
+@keyframes pulseGlow { 0%{box-shadow:0 0 15px rgba(255,255,255,0.5);} 50%{box-shadow:0 0 35px rgba(255,255,255,0.8);} 100%{box-shadow:0 0 15px rgba(255,255,255,0.5);} }
 
 @media(max-width:500px){
     header {flex-direction:column; gap:15px; text-align:center; padding:15px 20px;}
@@ -213,11 +202,12 @@ footer {
 </footer>
 
 <script>
-// Generate floating particles for desktop + mobile
-const totalParticles = 60;
+// Floating particles for desktop + mobile
+const totalParticles = 70;
+let particles = [];
 for(let i=0;i<totalParticles;i++){
     let p = document.createElement('div');
-    p.className = 'particle';
+    p.className='particle';
     let size = Math.random()*6 + 4;
     p.style.width = size+'px';
     p.style.height = size+'px';
@@ -225,23 +215,28 @@ for(let i=0;i<totalParticles;i++){
     p.style.top = Math.random()*window.innerHeight+'px';
     p.style.background = `rgba(255,255,255,${Math.random()*0.4+0.2})`;
     document.body.appendChild(p);
-    animateParticle(p);
-}
-
-function animateParticle(p){
-    let x = Math.random()*window.innerWidth;
-    let y = Math.random()*window.innerHeight;
-    let duration = Math.random()*20000 + 10000;
-    p.animate([
-        {transform: `translate(0px,0px)`},
-        {transform: `translate(${x}px,${y}px)`}
-    ],{
-        duration: duration,
-        iterations: Infinity,
-        direction: 'alternate',
-        easing:'ease-in-out'
+    particles.push({
+        el: p,
+        x: parseFloat(p.style.left),
+        y: parseFloat(p.style.top),
+        dx: (Math.random()-0.5)*0.3,
+        dy: (Math.random()-0.5)*0.3
     });
 }
+
+function animateParticles(){
+    particles.forEach(p=>{
+        p.x += p.dx;
+        p.y += p.dy;
+        if(p.x>window.innerWidth) p.x=0;
+        if(p.x<0) p.x=window.innerWidth;
+        if(p.y>window.innerHeight) p.y=0;
+        if(p.y<0) p.y=window.innerHeight;
+        p.el.style.transform = `translate(${p.x}px,${p.y}px)`;
+    });
+    requestAnimationFrame(animateParticles);
+}
+animateParticles();
 </script>
 
 </body>
