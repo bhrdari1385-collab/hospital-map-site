@@ -9,7 +9,6 @@
 
 <style>
 * {margin:0; padding:0; box-sizing:border-box;}
-
 body {
     font-family: 'Vazirmatn', sans-serif;
     min-height:100vh;
@@ -17,9 +16,19 @@ body {
     flex-direction:column;
     color:#fff;
     overflow-x:hidden;
+    position:relative;
     background: linear-gradient(270deg, #1e3c72, #2a5298, #00c6ff, #0077ff);
     background-size: 800% 800%;
     animation: gradientBG 20s ease infinite;
+}
+
+/* PARTICLES */
+.particle {
+    position:absolute;
+    border-radius:50%;
+    pointer-events:none;
+    opacity:0.7;
+    background: rgba(255,255,255,0.3);
 }
 
 /* ===== HEADER ===== */
@@ -32,13 +41,13 @@ header {
     backdrop-filter: blur(15px);
     border-radius: 0 0 25px 25px;
     box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    z-index:2;
 }
 
 .logo-section {
     display:flex;
     align-items:center;
     gap:15px;
-    animation: fadeInLeft 1s ease;
 }
 
 .logo-box {
@@ -47,11 +56,12 @@ header {
     border-radius:20px;
     backdrop-filter: blur(15px);
     transition: transform 0.4s, box-shadow 0.4s;
+    animation: pulseGlow 3s infinite alternate;
 }
 
 .logo-box:hover {
     transform: scale(1.08) rotate(-3deg);
-    box-shadow: 0 0 20px rgba(255,255,255,0.8);
+    box-shadow: 0 0 25px rgba(255,255,255,0.9);
 }
 
 .logo-box img {
@@ -86,6 +96,8 @@ nav a:hover {
     justify-content:center;
     align-items:center;
     padding:50px 20px;
+    position:relative;
+    z-index:2;
 }
 
 .glass-box {
@@ -95,9 +107,14 @@ nav a:hover {
     padding:60px 50px;
     text-align:center;
     width:420px;
-    box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.35);
     border: 1px solid rgba(255,255,255,0.25);
     animation: fadeIn 1.2s ease;
+    position:relative;
+}
+
+.glass-box:hover {
+    box-shadow: 0 0 80px rgba(255,255,255,0.3),0 0 120px rgba(0,198,255,0.2);
 }
 
 .glass-box h1 {
@@ -117,7 +134,7 @@ nav a:hover {
     font-weight:700;
     font-size:17px;
     cursor:pointer;
-    transition:0.4s, box-shadow 0.4s;
+    transition:0.4s, box-shadow 0.4s, transform 0.3s;
     background: linear-gradient(135deg, #00c6ff, #0077ff);
     box-shadow: 0 8px 25px rgba(0,0,0,0.3);
     color:#fff;
@@ -125,7 +142,7 @@ nav a:hover {
 
 .btn:hover {
     transform: translateY(-6px) scale(1.05);
-    box-shadow: 0 0 25px 5px rgba(0,198,255,0.7), 0 0 40px 10px rgba(0,119,255,0.5);
+    box-shadow: 0 0 30px 5px rgba(0,198,255,0.7), 0 0 50px 10px rgba(0,119,255,0.5);
 }
 
 /* ===== FOOTER ===== */
@@ -154,6 +171,12 @@ footer {
     100%{background-position:0% 50%;}
 }
 
+@keyframes pulseGlow {
+    0%{box-shadow:0 0 15px rgba(255,255,255,0.5);}
+    50%{box-shadow:0 0 35px rgba(255,255,255,0.8);}
+    100%{box-shadow:0 0 15px rgba(255,255,255,0.5);}
+}
+
 @media(max-width:500px){
     header {flex-direction:column; gap:15px; text-align:center; padding:15px 20px;}
     .glass-box {width:90%; padding:40px 25px;}
@@ -162,6 +185,7 @@ footer {
 </head>
 
 <body>
+
 <header>
     <div class="logo-section">
         <div class="logo-box">
@@ -188,8 +212,37 @@ footer {
     © 2026 بیمارستان تامین اجتماعی شهدای کارگر یزد - تمامی حقوق محفوظ است
 </footer>
 
+<script>
+// Generate floating particles for desktop + mobile
+const totalParticles = 60;
+for(let i=0;i<totalParticles;i++){
+    let p = document.createElement('div');
+    p.className = 'particle';
+    let size = Math.random()*6 + 4;
+    p.style.width = size+'px';
+    p.style.height = size+'px';
+    p.style.left = Math.random()*window.innerWidth+'px';
+    p.style.top = Math.random()*window.innerHeight+'px';
+    p.style.background = `rgba(255,255,255,${Math.random()*0.4+0.2})`;
+    document.body.appendChild(p);
+    animateParticle(p);
+}
+
+function animateParticle(p){
+    let x = Math.random()*window.innerWidth;
+    let y = Math.random()*window.innerHeight;
+    let duration = Math.random()*20000 + 10000;
+    p.animate([
+        {transform: `translate(0px,0px)`},
+        {transform: `translate(${x}px,${y}px)`}
+    ],{
+        duration: duration,
+        iterations: Infinity,
+        direction: 'alternate',
+        easing:'ease-in-out'
+    });
+}
+</script>
+
 </body>
 </html>
-
-
-
