@@ -1,37 +1,36 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <title>بیمارستان تامین اجتماعی شهدای کارگر یزد</title>
 
-    <!-- فونت فارسی حرفه‌ای -->
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- فونت فارسی -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <link rel="icon" type="image/png" href="logo.png">
+    <!-- favicon -->
+    <link rel="icon" href="logo.png" type="image/png">
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin:0; padding:0; box-sizing:border-box; }
         body {
             font-family: 'Vazirmatn', sans-serif;
             background: linear-gradient(135deg, #1e3c72, #2a5298);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            color: #fff;
         }
 
         /* ===== HEADER ===== */
         header {
-            background: white;
-            padding: 15px 50px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            align-items: center;
+            padding: 15px 50px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 0 0 20px 20px;
         }
 
         .logo-section {
@@ -41,10 +40,10 @@
         }
 
         .logo-box {
-            background: white;
+            background: rgba(255,255,255,0.3);
             padding: 8px;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
         }
 
         .logo-box img {
@@ -55,19 +54,20 @@
         .hospital-title {
             font-weight: 700;
             font-size: 18px;
-            color: #1e3c72;
+            color: #fff;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.4);
         }
 
         nav a {
             text-decoration: none;
             margin: 0 15px;
-            color: #1e3c72;
+            color: #fff;
             font-weight: 600;
             transition: 0.3s;
         }
 
         nav a:hover {
-            color: #2a5298;
+            color: #ffe600;
         }
 
         /* ===== MAIN ===== */
@@ -76,87 +76,84 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 50px 20px;
         }
 
-        .box {
-            background: white;
-            padding: 60px 50px;
+        .glass-box {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
             border-radius: 25px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+            padding: 50px 40px;
             text-align: center;
-            width: 420px;
-            animation: fadeIn 0.8s ease;
+            width: 400px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            animation: fadeIn 1s ease;
         }
 
-        .box h1 {
-            font-size: 20px;
+        .glass-box h1 {
             margin-bottom: 35px;
-            color: #333;
+            font-size: 22px;
+            color: #fff;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.4);
         }
 
         .btn {
             display: block;
             width: 100%;
             padding: 16px;
-            font-size: 16px;
             margin: 12px 0;
-            border-radius: 14px;
+            border-radius: 15px;
             border: none;
             cursor: pointer;
             font-weight: 600;
             transition: 0.3s;
+            background: linear-gradient(135deg, #00c6ff, #0077ff);
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
 
-        .btn-primary {
-            background: linear-gradient(45deg, #1e3c72, #2a5298);
-            color: white;
-        }
-
-        .btn-primary:hover {
+        .btn:hover {
             transform: translateY(-4px);
-            box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
         }
 
         footer {
             text-align: center;
             padding: 15px;
-            background: rgba(255,255,255,0.1);
-            color: white;
             font-size: 14px;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
         }
 
         @keyframes fadeIn {
-            from {opacity: 0; transform: translateY(20px);}
-            to {opacity: 1; transform: translateY(0);}
+            from {opacity:0; transform: translateY(20px);}
+            to {opacity:1; transform: translateY(0);}
         }
 
-        @media (max-width: 600px) {
+        @media(max-width:500px){
             header {
                 flex-direction: column;
                 gap: 15px;
-                text-align: center;
+                text-align:center;
+                padding:15px 20px;
             }
-
-            .box {
+            .glass-box {
                 width: 90%;
-                padding: 40px 25px;
+                padding: 35px 25px;
             }
         }
     </style>
 </head>
 
 <body>
-
 <header>
     <div class="logo-section">
         <div class="logo-box">
             <img src="logo.png" alt="لوگو سازمان تامین اجتماعی">
         </div>
-        <div class="hospital-title">
-            بیمارستان تامین اجتماعی شهدای کارگر یزد
-        </div>
+        <div class="hospital-title">بیمارستان تامین اجتماعی شهدای کارگر یزد</div>
     </div>
-
     <nav>
         <a href="#">صفحه اصلی</a>
         <a href="#">راهنمای بیماران</a>
@@ -165,16 +162,10 @@
 </header>
 
 <div class="container">
-    <div class="box">
+    <div class="glass-box">
         <h1>لطفاً طبقه مورد نظر را انتخاب کنید</h1>
-
-        <button class="btn btn-primary" onclick="window.location.href='map1.html'">
-            طبقه همکف
-        </button>
-
-        <button class="btn btn-primary" onclick="window.location.href='map2.html'">
-            طبقه اول
-        </button>
+        <button class="btn" onclick="window.location.href='map1.html'">طبقه همکف</button>
+        <button class="btn" onclick="window.location.href='map2.html'">طبقه اول</button>
     </div>
 </div>
 
@@ -184,6 +175,7 @@
 
 </body>
 </html>
+
 
 
 
